@@ -1,0 +1,103 @@
+baseURL = "https://www.zchenxing.com"
+languageCode = "zh-CN"
+title = "主人翁"
+theme = "maupassant"
+googleAnalytics = ""  # UA-XXXXXXXX-X
+
+## 保持分类的原始名字（false会做转小写处理）
+preserveTaxonomyNames = true
+## 是否禁止URL Path转小写
+disablePathToLower = true
+
+hasCJKLanguage = true
+summaryLength = 80
+
+disqusShortname = ""  
+## 是否开启disqus评论，不要和utteranc同时开启
+
+[author]
+  name = "Mars"
+
+[params]
+  author = "Mars"
+  subtitle = "主人翁何在？你的选择是什么？此时此刻就是最好的时间！"
+  keywords = "工作总结、学习记录、心得体会、超越自我"
+  description = "关注陈星，一起进步。不论何时何地，你都有选择的权利。此时此刻就是最好的时间。明确目标，专注效率，遇见更好的自己"
+  busuanzi = false #启用不算子网页统计
+  googleAd = ""  #ca-pub-xxxxxxxxxxxxxx
+  localSearch = true # 启用本地搜索
+  fancybox = true
+
+  # 这里我存放在了主题的static文件夹里，根目录的似乎也可以
+  customCSS = ['douban.css', 'other.css']
+  # if ['custom.css'], load '/static/css/custom.css' file
+  customJS = ['douban.js']
+  #if ['custom.js'], load '/static/js/custom.js' file
+
+  # 全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能
+  toc = true  # 是否开启目录
+  
+  # beian = "浙ICP备19008730号-3"
+
+## 友情链接，可以多个
+
+[[params.links]]
+  title = "人工博客"
+  name = "人工博客"
+  url = "https://www.gzcx.net/"
+
+[[params.links]]
+  title = "程序员导航网，便于程序员日常使用的网址集合，你想要的都在这里☺"
+  name = "程序员导航网"
+  url = "https://nav.gzcx.net"
+
+
+## 侧边栏广告位
+[[params.ads]]
+  title = "pan gun running"
+  url = "https://www.gzcx.net"
+  img = "https://static.gzcx.net/oneblog/20200516153233593.jpg-94rg002"
+
+## 配置 utteranc评论,教程参考 https://utteranc.es/
+[params.utteranc]
+  enable = false
+  repo = "chen-xing/PgHugo" ##换成自己得
+  issueTerm = "pathname"
+  theme = "github-light"
+
+## 开启版权声明，协议名字和链接都可以换
+[params.cc]
+    name = "知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议"
+    link = "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+
+[params.image_cdn]
+    enable = true
+    Host = "https://fastly.jsdelivr.net/gh/user/chen-xing.github.io"	
+
+## 配置代码高亮
+[markup]
+  [markup.highlight]
+    lineNos = true
+    style = "github"
+
+## 配置网站菜单
+
+[menu]
+
+  [[menu.main]]
+    identifier = "tools"
+    name = "工具"
+    url = "/tools/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/about/"
+    weight = 4

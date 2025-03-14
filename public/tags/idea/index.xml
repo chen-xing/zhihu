@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Idea on 知乎</title>
+    <link>http://localhost:1313/tags/idea/</link>
+    <description>Recent content in Idea on 知乎</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 17 May 2022 21:55:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/idea/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>idea实现代码热部署</title>
+      <link>http://localhost:1313/idea-realizes-code-hot-deployment.html</link>
+      <pubDate>Tue, 17 May 2022 21:55:00 +0800</pubDate>
+      <guid>http://localhost:1313/idea-realizes-code-hot-deployment.html</guid>
+      <description>&lt;h2 id=&#34;dynamic-code-evolution-for-java&#34;&gt;Dynamic Code Evolution for Java&lt;/h2&gt;&#xA;&lt;p&gt;动态代码演进虚拟机 (DCE VM) 是对 Java HotSpot VM 的修改，它允许在运行时无限制地重新定义加载的类。HotSpot™ VM 的当前热交换机制只允许更改方法体。增强的 VM 允许添加和删除字段和方法以及更改类的超类型。&lt;/p&gt;&#xA;&lt;p&gt;1 需要使用 JDK 1.8.0_181 版本，因为 dcevm 需要和 jdk 版本匹配。&lt;/p&gt;&#xA;&lt;p&gt;2 下载插件：https://github.com/dcevm/dcevm/releases&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>idea jvm调优</title>
+      <link>http://localhost:1313/idea-jvm-tuning.html</link>
+      <pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate>
+      <guid>http://localhost:1313/idea-jvm-tuning.html</guid>
+      <description>&lt;h2 id=&#34;1背景&#34;&gt;1、背景&lt;/h2&gt;&#xA;&lt;p&gt;idea作为一个高频使用的java IDE。性能的好坏,影响着开发的心情。工欲善其事必先利其器。&lt;/p&gt;&#xA;&lt;h2 id=&#34;2优化后的参数&#34;&gt;2、优化后的参数&lt;/h2&gt;&#xA;&lt;p&gt;优化后的感觉是&lt;strong&gt;拙匠常怪工具差&lt;/strong&gt;。明明可以流畅的编码，为啥之前选择的是默默忍受，不去改变。真的是流畅了很多。&lt;/p&gt;&#xA;&lt;p&gt;当前电脑的配置是 windows i5 8核16G&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# custom IntelliJ IDEA VM options&#xD;&#xA;&#xD;&#xA;# 堆大小，按常规操作，设成相同的，避免自动扩容&#xD;&#xA;-Xms1536m&#xD;&#xA;-Xmx1536m&#xD;&#xA;# 年轻代大小，Sun推荐设置为堆大小的3/8&#xD;&#xA;-Xmn576m&#xD;&#xA;# 在JVM启动时即预初始化堆中的所有页，能够快速利用&#xD;&#xA;-XX:+AlwaysPreTouch&#xD;&#xA;&#xD;&#xA;# 设置一个较大的元空间初始值，避免频繁GC扩容&#xD;&#xA;-XX:MetaspaceSize=256m&#xD;&#xA;# 元空间最大默认不限制，设一个值保护一下&#xD;&#xA;-XX:MaxMetaspaceSize=768m&#xD;&#xA;&#xD;&#xA;# 启用G1 GC&#xD;&#xA;# -XX:+UseG1GC&#xD;&#xA;&#xD;&#xA;# 启用CMS GC&#xD;&#xA;-XX:+UseConcMarkSweepGC&#xD;&#xA;# CMS并行标记，降低标记阶段停顿时间&#xD;&#xA;-XX:+CMSParallelRemarkEnabled&#xD;&#xA;# 重新标记前先执行一次新生代GC&#xD;&#xA;-XX:+CMSScavengeBeforeRemark&#xD;&#xA;# 触发CMS GC的堆内存占用比例，调大点以降低GC频率&#xD;&#xA;-XX:CMSInitiatingOccupancyFraction=75&#xD;&#xA;-XX:+UseCMSInitiatingOccupancyOnly&#xD;&#xA;&#xD;&#xA;# 对象晋升到老年代的年龄，默认15。根据观察，对IDEA来说设成10就足够了&#xD;&#xA;-XX:MaxTenuringThreshold=10&#xD;&#xA;&#xD;&#xA;# 压缩普通对象指针&#xD;&#xA;-XX:+UseCompressedOops&#xD;&#xA;&#xD;&#xA;# 指定服务器版JIT编译器，其实不用写，默认已经是了&#xD;&#xA;-server&#xD;&#xA;# JIT代码缓存的大小，默认是240M&#xD;&#xA;-XX:ReservedCodeCacheSize=360M&#xD;&#xA;# 打开JIT分层编译，默认是开启的了&#xD;&#xA;-XX:+TieredCompilation&#xD;&#xA;# 每MB堆空间中的软引用能够存活的近似毫秒数&#xD;&#xA;-XX:SoftRefLRUPolicyMSPerMB=50&#xD;&#xA;&#xD;&#xA;# OOM时输出堆dump转储文件&#xD;&#xA;-XX:+HeapDumpOnOutOfMemoryError&#xD;&#xA;# 禁止把某些异常的stack trace优化掉，防止信息被吃了找不到问题&#xD;&#xA;-XX:-OmitStackTraceInFastThrow&#xD;&#xA;# 禁用字节码验证。IDEA的代码足够可靠，不用验证&#xD;&#xA;-Xverify:none&#xD;&#xA;# 启用断言机制（enable assertion）&#xD;&#xA;-ea&#xD;&#xA;&#xD;&#xA;-Dfile.encoding=UTF-8&#xD;&#xA;-Dsun.io.useCanonCaches=false&#xD;&#xA;-Djava.net.preferIPv4Stack=true&#xD;&#xA;-Djdk.http.auth.tunneling.disabledSchemes=&amp;#34;&amp;#34;&#xD;&#xA;&#xD;&#xA;-XX:ErrorFile=$USER_HOME/java_error_in_idea_%p.log&#xD;&#xA;-XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof&#xD;&#xA;-javaagent:D:\software\JetBrains\IntelliJ IDEA 2019.2\bin\jetbrains-agent.jar&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;3cutom-vm-options和ideaexevmoptions的区别&#34;&gt;3、cutom vm options和idea.exe.vmoptions的区别&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;idea.exe.vmoptions是开发工具自带的，不建议修改，因为升级的时候会进行覆盖&lt;/li&gt;&#xA;&lt;li&gt;cutom vm options是用户自定义的，是留给使用者个性化配置的。默认保存在用户目录下的 .IntelliJIdea2019.2/config&lt;/li&gt;&#xA;&lt;li&gt;实际操作是idea.exe.vmoptions是全局的配置，cutom vm options会对定义的配置进行覆盖&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;4修改配置后无法启动&#34;&gt;4、修改配置后无法启动&lt;/h2&gt;&#xA;&lt;p&gt;报错的信息如下：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>IDEA中全项目文本查找快捷键（ctr&#43;shift&#43;F）无效解决办法</title>
+      <link>http://localhost:1313/Invalid-solution-to-the-shortcut-key-(ctr&#43;shift&#43;F)-for-all-project-text-search-in-IDEA.html</link>
+      <pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate>
+      <guid>http://localhost:1313/Invalid-solution-to-the-shortcut-key-(ctr&#43;shift&#43;F)-for-all-project-text-search-in-IDEA.html</guid>
+      <description>&lt;h3 id=&#34;1可能的问题&#34;&gt;1、可能的问题&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;IDEA的快捷键被修改了&lt;/li&gt;&#xA;&lt;li&gt;与系统中的其他软件的快捷键冲突了&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;2解决办法&#34;&gt;2、解决办法&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;搜狗输入法修改简体与繁体的快捷键（90%是这个原因）&lt;/li&gt;&#xA;&lt;li&gt;不行的话，重启下电脑，首先运行IDEA,检查下快捷键是否正常。不正常的话，检查下是否有开机启动的软件，确定下他们是否存在快捷键冲突的可能。&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>idea代码模板如何设置</title>
+      <link>http://localhost:1313/how-to-set-the-idea-codeTemplate.html</link>
+      <pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate>
+      <guid>http://localhost:1313/how-to-set-the-idea-codeTemplate.html</guid>
+      <description>&lt;h2 id=&#34;1模板分类&#34;&gt;1、模板分类&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;File and Code template 文件级别的模板&lt;/li&gt;&#xA;&lt;li&gt;Live  template 方法或代码块级别的模板&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;2file-and-code-template&#34;&gt;2、File and Code template&lt;/h2&gt;&#xA;&lt;p&gt;&#xD;&#xA;        &lt;img class=&#34;mx-auto&#34; alt=&#34;idea代码模板设置&#34; src=&#34;https://fastly.jsdelivr.net/gh/chen-xing/figure_bed_02/cdn/20210728194743558.png&#34; /&gt;   &#xD;&#xA;    &lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;/**&#xD;&#xA; * @description TODO&#xD;&#xA; * @date ${YEAR}-${MONTH}-${DAY} ${TIME}&#xD;&#xA; * @author chen xing&#xD;&#xA; */&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中${DATE}的样式是 2021/07/28,这里使用了${YEAR}-${MONTH}-${DAY}进行了日期的格式化，纯属个人强迫症。&lt;/p&gt;&#xA;&lt;p&gt;按照上面的设置后，当新建.java文件的时候,默认会按照这个模版去生成对应的代码注释&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

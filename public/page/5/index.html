@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta name="generator" content="Hugo 0.140.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>知乎 | 主人翁何在？你的选择是什么？此时此刻就是最好的时间！</title>
+    <meta property="og:title" content="知乎 | 主人翁何在？你的选择是什么？此时此刻就是最好的时间！">
+    <meta property="og:type" content="website">
+    <meta name="Keywords" content="工作总结、学习记录、心得体会、超越自我">
+    <meta name="description" content="做自己能力范围内的事情，一起进步。不论何时何地，你都有选择的权利。此时此刻就是最好的时间。明确目标，专注效率，遇见更好的自己">
+    <meta property="og:url" content="http://localhost:1313/">
+    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
+    <link rel="icon" href='/favicon.png' type="image/png">
+    <link rel="alternate icon" href='/favicon.png' type="image/svg+xml">
+    
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="知乎" />
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <h1>
+                        <a id="logo" href="http://localhost:1313/">
+                            知乎
+                        </a>
+                    </h1>
+                
+                <p class="description">主人翁何在？你的选择是什么？此时此刻就是最好的时间！</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://localhost:1313/">Home</a>
+                    
+                    <a  href="http://localhost:1313/tools/" title="工具">工具</a>
+                    
+                    <a  href="http://localhost:1313/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://localhost:1313/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/Detailed-maven---the-most-complete-maven-tutorial-in-history.html" title="maven 详解-史上最全的maven教程" target="_blank">maven 详解-史上最全的maven教程</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tool' target="_blank">tool</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h3 id="1常用maven仓库">1、常用maven仓库</h3>
+<ul>
+<li><a href="http://mvnrepository.com/">http://mvnrepository.com/</a></li>
+<li><a href="http://search.maven.org/">http://search.maven.org/</a></li>
+<li><a href="https://repository.sonatype.org/">https://repository.sonatype.org/</a></li>
+</ul>
+<h3 id="2生成项目">2、生成项目</h3>
+<h4 id="21创建maven的普通java项目">2.1、创建Maven的普通Java项目</h4>
+<pre tabindex="0"><code>mvn archetype:create
+    -DgroupId=packageName
+    -DartifactId=projectName
+</code></pre><h4 id="22创建maven的web项目">2.2、创建Maven的Web项目</h4>
+<pre tabindex="0"><code>mvn archetype:create
+    -DgroupId=packageName
+    -DartifactId=webappName
+    -DarchetypeArtifactId=maven-archetype-webapp
+</code></pre><h4 id="23反向生成-maven-项目的骨架">2.3、反向生成 maven 项目的骨架</h4>
+<pre tabindex="0"><code>mvn archetype:generate
+</code></pre><h3 id="3发布代码到远程仓库">3、发布代码到远程仓库</h3>
+<pre tabindex="0"><code>mvn install:install-file -DgroupId=com -DartifactId=client -Dversion=0.1.0 -Dpackaging=jar -Dfile=d:\client-0.1.0.jar
+-DdownloadSources=true
+-DdownloadJavadocs=true
+</code></pre><h3 id="4常用命令">4、常用命令</h3>
+<table>
+  <thead>
+      <tr>
+          <th>命令</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>mvn –version</td>
+          <td>显示版本信息</td>
+      </tr>
+      <tr>
+          <td>mvn clean</td>
+          <td>清理项目生产的临时文件,一般是模块下的target目录</td>
+      </tr>
+      <tr>
+          <td>mvn compile</td>
+          <td>编译源代码，一般编译模块下的src/main/java目录</td>
+      </tr>
+      <tr>
+          <td>mvn package</td>
+          <td>项目打包工具,会在模块下的target目录生成jar或war等文件</td>
+      </tr>
+      <tr>
+          <td>mvn test</td>
+          <td>测试命令,或执行src/test/java/下junit的测试用例.</td>
+      </tr>
+      <tr>
+          <td>mvn install</td>
+          <td>将打包的jar/war文件复制到你的本地仓库中,供其他模块使用</td>
+      </tr>
+      <tr>
+          <td>mvn deploy</td>
+          <td>将打包的文件发布到远程参考,提供其他人员进行下载依赖</td>
+      </tr>
+      <tr>
+          <td>mvn site</td>
+          <td>生成项目相关信息的网站</td>
+      </tr>
+      <tr>
+          <td>mvn eclipse:eclipse</td>
+          <td>将项目转化为Eclipse项目</td>
+      </tr>
+      <tr>
+          <td>mvn dependency:tree</td>
+          <td>打印出项目的整个依赖树</td>
+      </tr>
+      <tr>
+          <td>mvn archetype:generate</td>
+          <td>创建Maven的普通java项目</td>
+      </tr>
+      <tr>
+          <td>mvn tomcat:run</td>
+          <td>在tomcat容器中运行web应用</td>
+      </tr>
+      <tr>
+          <td>mvn jetty:run</td>
+          <td>调用 Jetty 插件的 Run 目标在 Jetty Servlet 容器中启动 web 应用</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>注意：运行maven命令的时候，首先需要定位到maven项目的目录，也就是项目的pom.xml文件所在的目录。否则，必以通过参数来指定项目的目录。</p>……
+        </div>
+        <p class="readmore"><a href="http://localhost:1313/Detailed-maven---the-most-complete-maven-tutorial-in-history.html" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/Small-stories,-big-wisdom,-vernacular-economics.html" title="小故事大智慧，白话经济学" target="_blank">小故事大智慧，白话经济学</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E4%B9%98%E9%A3%8E%E7%A0%B4%E6%B5%AA' target="_blank">乘风破浪</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <blockquote>
+<p><strong>郑重声明</strong>: 本文首发于<a href="https://www.gzcx.net">人工博客</a></p>
+</blockquote>
+<h2 id="1商人买猴子">1、商人买猴子</h2>
+<blockquote>
+<p>有一个商人到了一个山村，村子周围的山上全是猴子。
+商人就和村子种地的农民说，我买猴子，100元一只。
+村民不知是真是假，试着抓猴子，商人果然给了100元。
+于是全村的人都去抓猴子，这比种地合算得多了。
+很快商人买了两千多只猴子，山上猴子很少了。
+商人这时又出价200元一只买猴子，村民见猴价翻番，便又纷纷去抓，商人又买了，但猴子已经很难抓到了。
+商人又出价300元一只买猴子，猴子几乎抓不到了。
+商人出价到500元一只，山上已没有猴子，三千多只猴子都在商人这里。
+这天，商人有事回城里，他的助手到村里和农民们说，我把猴子300元一只卖你们，等商人回来，你们500元卖给商人，你们就发财了。
+村民疯了一般，把锅砸了卖铁，凑够钱，把三千多只猴子全买了回去。
+助手带着钱走了，商人再也没有回来。
+村民等了很久很久，他们坚信商人会回来500元买他们的猴子，终于有人等不急了，猴子还要吃香蕉，这要费用啊，就把猴子放回了山上，山上仍然到处是猴子。</p>……
+        </div>
+        <p class="readmore"><a href="http://localhost:1313/Small-stories,-big-wisdom,-vernacular-economics.html" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/Troubleshooting-outline.html" title="故障处理总纲" target="_blank">故障处理总纲</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/java' target="_blank">java</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h3 id="1前言">1、前言</h3>
+<p>没有完美的程序，是程序都有bug,都有容量限制。所以出现故障也在情理之中，那么面对突如其来的bug,我们该如何应对呢？这是一个值得思考的问题？</p>
+<h3 id="2核心原则">2、核心原则</h3>
+<ul>
+<li>
+<p>将正在发生或已发生故障的损害程度减轻到最低-<strong>恢复服务</strong></p>
+</li>
+<li>
+<p>而与之对应的错误做法是成谜于追求破案的情结之中，无法自拔，而这样做的结果往往都是时间过去了，原因没找到，故障进一步升级，这个需要引起重视。</p>……
+        </div>
+        <p class="readmore"><a href="http://localhost:1313/Troubleshooting-outline.html" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/Troubleshooting-series-tragedy-caused-by-the-bug-of-httpclient-3.x.html" title="故障处理系列-httpclient 3.x的bug引发的惨案" target="_blank">故障处理系列-httpclient 3.x的bug引发的惨案</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/java' target="_blank">java</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h3 id="1故障现象描述">1、故障现象描述</h3>
+<p>调用链路是 A-&gt;B-&gt;C</p>
+<p>目前出故障的是B服务。A是网关，C是底层服务</p>
+<p>故障的现象是：</p>
+<ul>
+<li>A对外出现大量的504</li>
+<li>B的线程数暴增</li>
+<li>B的流量骤减，一段时间趋近于0</li>
+<li>C的请求响应无明显异常</li>
+</ul>
+<h3 id="2故障分析">2、故障分析</h3>
+<p>从B的流量骤减至0，然后A大量504可以推测出可能是A把B给熔断了，根据这个思路排查，最终定位到了B的熔断策略中有一个最大线程数的限制，这个跟B的线程数暴增是吻合的。</p>……
+        </div>
+        <p class="readmore"><a href="http://localhost:1313/Troubleshooting-series-tragedy-caused-by-the-bug-of-httpclient-3.x.html" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/Troubleshooting-Series-Large-File-Causes-OOM.html" title="故障处理系列-大文件引发OOM" target="_blank">故障处理系列-大文件引发OOM</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/java' target="_blank">java</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h3 id="1场景还原">1、场景还原</h3>
+<p>系统A是一个需要加载文件到内存中进行处理的系统</p>
+<ul>
+<li>大量的大文件并发请求过来</li>
+<li>收到大量的系统的内存告警</li>
+<li>收到大量的5xx告警，同时从监控可以看到大量的fullGC</li>
+<li>系统oom</li>
+<li>重启，过了3分钟故障再次发生</li>
+</ul>
+<h3 id="2原因分析">2、原因分析</h3>
+<ul>
+<li>大量的大文件请求过来，导致系统中内存迅速消耗殆尽</li>
+<li>内存不够用触发fullGc</li>
+<li>频繁的gc导致系统卡顿，触发5xx</li>
+<li>gc无法维持内存的稳定，oom</li>
+<li>重启无法解决，是因为系统的是通过mq进行驱动的，重启能够是内存恢复，但是mq的重试机制又迅速点燃了这个故障，要想彻底解决，只能是清洗或过滤这一批异常数据</li>
+</ul>
+<p>主要原因是系统层面未对这个大文件的场景进行考虑，超出了系统的处理能力。</p>……
+        </div>
+        <p class="readmore"><a href="http://localhost:1313/Troubleshooting-Series-Large-File-Causes-OOM.html" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/Troubleshooting-Series-Data-Cleaning-and-Blocking-MQ.html" title="故障处理系列-数据清洗堵塞mq" target="_blank">故障处理系列-数据清洗堵塞mq</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/java' target="_blank">java</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h3 id="1故障还原">1、故障还原</h3>
+<ul>
+<li>系统负载迅速升高</li>
+<li>大量mq的发送被限流，影响到了核心业务（有强依赖mq驱动的）</li>
+</ul>
+<h3 id="2根因分析">2、根因分析</h3>
+<ul>
+<li>上游的一个业务触发了系统的数据清洗</li>
+<li>清理的数据比较多，清洗的逻辑中需要对外发送大量的广播</li>
+<li>mq的发送频率过快，大量的超时，进而被熔断</li>
+<li>大量的mq无法完成发送</li>
+<li>上游大量基于mq驱动的业务受阻</li>
+</ul>
+<h3 id="3处理办法">3、处理办法</h3>
+<ul>
+<li>
+<p>清洗数据为非核心业务，可以控制处理时间、策略。避免对核心业务的冲击</p>……
+        </div>
+        <p class="readmore"><a href="http://localhost:1313/Troubleshooting-Series-Data-Cleaning-and-Blocking-MQ.html" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/When-you-encounter-an-online-failure-what-is-your-first-reaction.html" title="遇到了线上故障，你的第一反应是什么?" target="_blank">遇到了线上故障，你的第一反应是什么?</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/Linux' target="_blank">Linux</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h2 id="遇到了线上故障你的第一反应是什么">遇到了线上故障，你的第一反应是什么</h2>
+<h3 id="1线上故障的分类">1、线上故障的分类</h3>
+<blockquote>
+<ul>
+<li>业务报错持续发生</li>
+<li>接口响应时间变长</li>
+<li>接口拒绝响应</li>
+<li>cpu异常飚高</li>
+<li>内存异常飚高</li>
+<li>数据库连不上</li>
+</ul>
+</blockquote>
+<h3 id="2故障处理的总的思路">2、故障处理的总的思路</h3>
+<blockquote>
+<ul>
+<li>先对故障进行简单的分类分析，如果在5分钟内有了大致思路那就继续分析几分钟；若是毫无头绪，先对集群中的机器其中的一台进行重启处理，若是重启能够缓解问题，继续重启其他的，保留一台留作问题分析即可</li>
+</ul>
+</blockquote>
+<h3 id="3不同的故障的处理思路">3、不同的故障的处理思路</h3>
+<blockquote>
+<ul>
+<li>若是有持续的日志报错，分析错误日志一般能够发现问题</li>
+<li>获取不到数据连接的问题，一般分析数据的连接池的配置以及当前数据操作线程的情况，可能发生线程block以及线程停顿的情况</li>
+<li>接口响应变长或cpu异常飚高一般是系统中有线程存在block或者线程繁忙的情况</li>
+<li>cpu异常飚高但是无明显报错的情况一般需要观察jvm的gC情况，dump后进行内存分析</li>
+<li>内存异常飚高一般可能是出现死循环或者内存泄露</li>
+</ul>
+</blockquote>
+<h3 id="4故障分析中可能会用到的工具">4、故障分析中可能会用到的工具</h3>
+<blockquote>
+<ul>
+<li>调用链跟踪工具</li>
+<li>es日志查询</li>
+<li>mat jvm分析</li>
+<li>arthas在线诊断工具</li>
+<li>Bistoury 在线分析工具</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p>版权声明：本文为人工博客的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+本文链接：https://www.94rg.com/article/1719</p>……
+        </div>
+        <p class="readmore"><a href="http://localhost:1313/When-you-encounter-an-online-failure-what-is-your-first-reaction.html" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/Four-Habits-of-Highly-Effective-People.html" title="高效人士的四个习惯" target="_blank">高效人士的四个习惯</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E4%B9%98%E9%A3%8E%E7%A0%B4%E6%B5%AA' target="_blank">乘风破浪</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h2 id="1捕获瞬时灵感">1、捕获瞬时灵感</h2>
+<p>也许是清晨醒来，也许是在上班的路上，也许是在半夜醒来&hellip;很多时候我都有这样一种体会，某一时刻的思想特别活跃积极，很多想不清楚或无法理解的问题在这一时刻是如此的清晰简单。但是过了几分钟这种感觉便消退的无影无踪，脑海里只有一些模糊的记忆。这种感觉其实就是我指的是瞬时的灵感。这其实是一种很高效的思维模式。因此当每次瞬时灵感来临之际，我应该第一时间拿出小本子把他记录下来，不管是一个粗浅的想法还是一个不成熟的方案。不要以为自己的记忆力好，不到5分钟自己就会忘记的一干二净。</p>……
+        </div>
+        <p class="readmore"><a href="http://localhost:1313/Four-Habits-of-Highly-Effective-People.html" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/log-about-git.html" title="git log介绍" target="_blank">git log介绍</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-02-22T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-02-22
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tool' target="_blank">tool</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h2 id="查看">查看</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git log
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="简化版日志">简化版日志</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git log --pretty<span style="color:#000;font-weight:bold">=</span>oneline
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="查看前n条">查看前N条</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log -n
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="变更日志">变更日志</h2>
+<p><code>-n</code> 同上,不加则显示全部</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log --stat -n
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="查看提交修改">查看提交修改</h2>
+<p>查看某次commit做了哪些修改</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git show &lt;commit-hash-id&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="退出log状态">退出log状态</h2>
+<p>有时候日志过长，可以按下英文q退出状态</p>
+<h2 id="查看提交历史和说明">查看提交历史和说明</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git reflog
+</span></span></code></pre></td></tr></table>
+</div>
+</div>……
+        </div>
+        <p class="readmore"><a href="http://localhost:1313/log-about-git.html" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/tag-about-git.html" title="git tag 介绍" target="_blank">git tag 介绍</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-02-22T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-02-22
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tool' target="_blank">tool</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h2 id="标签">标签</h2>
+<p>tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。</p>
+<h2 id="新建一个标签">新建一个标签</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git tag &lt;tagname&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>命令<code>git tag &lt;tagname&gt;</code>用于新建一个标签，默认为HEAD，也可以指定一个commit id。</p>
+<h2 id="指定标签信息">指定标签信息</h2>
+<p>you can use like this: <code>git tag -a &lt;tagname&gt; -m &quot;say something...&quot;</code></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git tag -a &lt;tagname&gt; -m &lt;description&gt; &lt;branchname&gt; or commit_id
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="pgp签名标签">PGP签名标签</h2>
+<p>you can use like this: <code>git tag -s &lt;tagname&gt; -m &quot;say something...&quot;</code></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git tag -s &lt;tagname&gt; -m &lt;description&gt; &lt;branchname&gt; or commit_id
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="查看所有标签">查看所有标签</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git tag
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="推送一个本地标签">推送一个本地标签</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git push origin &lt;tagname&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="推送全部未推送过的本地标签">推送全部未推送过的本地标签</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git push origin --tags
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="删除一个本地标签">删除一个本地标签</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git tag -d &lt;tagname&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="删除一个远程标签">删除一个远程标签</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git push origin :refs/tags/&lt;tagname&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div>……
+        </div>
+        <p class="readmore"><a href="http://localhost:1313/tag-about-git.html" target="_blank">Continue reading</a></p>
+    </article>
+    
+    
+    
+
+
+
+<ol class="page-navigator">
+    
+    <li class="prev">
+        <a href="http://localhost:1313/page/4/">Previous</a>
+    </li>
+    
+
+    
+    <li >
+        <a href="http://localhost:1313/">1</a>
+    </li>
+    
+    <li >
+        <a href="http://localhost:1313/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="http://localhost:1313/page/3/">3</a>
+    </li>
+    
+    <li >
+        <a href="http://localhost:1313/page/4/">4</a>
+    </li>
+    
+    <li  class="current">
+        <a href="http://localhost:1313/page/5/">5</a>
+    </li>
+    
+    <li >
+        <a href="http://localhost:1313/page/6/">6</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="http://localhost:1313/page/6/">Next</a>
+    </li>
+    
+</ol>
+
+
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2025 <a href="http://localhost:1313/">知乎 By Mars</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='http://localhost:1313/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://localhost:1313/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://localhost:1313/myDream.html" title="我期望的生活" target="_blank">我期望的生活</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/Fund-industry-F.html" title="基金行业分析" target="_blank">基金行业分析</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/When-did-you-realize-there-was-no-way-out.html" title="什么时候你才意识到上班是没有出路的" target="_blank">什么时候你才意识到上班是没有出路的</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/2023-sailing-for-kids.html" title="2023扬帆起航" target="_blank">2023扬帆起航</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/morningstar-financial-view.html" title="晨星理财观" target="_blank">晨星理财观</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/time-and-money-game.html" title="时间和金钱的游戏" target="_blank">时间和金钱的游戏</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/path-to-maturity.html" title="成长之路" target="_blank">成长之路</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/how-hard-is-it-for-people-a-the-bottom-to-succeed.html" title="底层人想要成功到底有多难" target="_blank">底层人想要成功到底有多难</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/efficient-people-time-management.html" title="高效人士时间管理" target="_blank">高效人士时间管理</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/idea-realizes-code-hot-deployment.html" title="idea实现代码热部署" target="_blank">idea实现代码热部署</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title" style="color:red">Ads</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a href="https://www.gzcx.net" title="pan gun running" target="_blank" style="color:red">
+                
+                    <img src="https://static.gzcx.net/oneblog/20200516153233593.jpg-94rg002">
+                
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="http://localhost:1313/categories/java/">Java (15)</a></li>
+    
+    <li><a href="http://localhost:1313/categories/Linux/">Linux (6)</a></li>
+    
+    <li><a href="http://localhost:1313/categories/tool/">Tool (15)</a></li>
+    
+    <li><a href="http://localhost:1313/categories/%E4%B9%98%E9%A3%8E%E7%A0%B4%E6%B5%AA/">乘风破浪 (17)</a></li>
+    
+    <li><a href="http://localhost:1313/categories/%E4%BB%96%E5%B1%B1%E4%B9%8B%E7%8E%89/">他山之玉 (3)</a></li>
+    
+    <li><a href="http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://localhost:1313/tags/base/">Base</a>
+    
+    <a href="http://localhost:1313/tags/base-command/">Base Command</a>
+    
+    <a href="http://localhost:1313/tags/experience/">Experience</a>
+    
+    <a href="http://localhost:1313/tags/git/">Git</a>
+    
+    <a href="http://localhost:1313/tags/idea/">Idea</a>
+    
+    <a href="http://localhost:1313/tags/java/">Java</a>
+    
+    <a href="http://localhost:1313/tags/Linux/">Linux</a>
+    
+    <a href="http://localhost:1313/tags/maven/">Maven</a>
+    
+    <a href="http://localhost:1313/tags/reprint/">Reprint</a>
+    
+    <a href="http://localhost:1313/tags/tool/">Tool</a>
+    
+    <a href="http://localhost:1313/tags/work/">Work</a>
+    
+    <a href="http://localhost:1313/tags/%E4%B9%98%E9%A3%8E%E7%A0%B4%E6%B5%AA/">乘风破浪</a>
+    
+    <a href="http://localhost:1313/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.gzcx.net/" title="人工博客">人工博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://nav.gzcx.net" title="程序员导航网，便于程序员日常使用的网址集合，你想要的都在这里☺">程序员导航网，便于程序员日常使用的网址集合，你想要的都在这里☺</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="http://localhost:1313/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 知乎</title>
+    <link>http://localhost:1313/tags/Linux/</link>
+    <description>Recent content in Linux on 知乎</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 15 Mar 2022 21:55:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/Linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>遇到了线上故障，你的第一反应是什么?</title>
+      <link>http://localhost:1313/When-you-encounter-an-online-failure-what-is-your-first-reaction.html</link>
+      <pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate>
+      <guid>http://localhost:1313/When-you-encounter-an-online-failure-what-is-your-first-reaction.html</guid>
+      <description>&lt;h2 id=&#34;遇到了线上故障你的第一反应是什么&#34;&gt;遇到了线上故障，你的第一反应是什么&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1线上故障的分类&#34;&gt;1、线上故障的分类&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;业务报错持续发生&lt;/li&gt;&#xA;&lt;li&gt;接口响应时间变长&lt;/li&gt;&#xA;&lt;li&gt;接口拒绝响应&lt;/li&gt;&#xA;&lt;li&gt;cpu异常飚高&lt;/li&gt;&#xA;&lt;li&gt;内存异常飚高&lt;/li&gt;&#xA;&lt;li&gt;数据库连不上&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;2故障处理的总的思路&#34;&gt;2、故障处理的总的思路&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;先对故障进行简单的分类分析，如果在5分钟内有了大致思路那就继续分析几分钟；若是毫无头绪，先对集群中的机器其中的一台进行重启处理，若是重启能够缓解问题，继续重启其他的，保留一台留作问题分析即可&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;3不同的故障的处理思路&#34;&gt;3、不同的故障的处理思路&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;若是有持续的日志报错，分析错误日志一般能够发现问题&lt;/li&gt;&#xA;&lt;li&gt;获取不到数据连接的问题，一般分析数据的连接池的配置以及当前数据操作线程的情况，可能发生线程block以及线程停顿的情况&lt;/li&gt;&#xA;&lt;li&gt;接口响应变长或cpu异常飚高一般是系统中有线程存在block或者线程繁忙的情况&lt;/li&gt;&#xA;&lt;li&gt;cpu异常飚高但是无明显报错的情况一般需要观察jvm的gC情况，dump后进行内存分析&lt;/li&gt;&#xA;&lt;li&gt;内存异常飚高一般可能是出现死循环或者内存泄露&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;4故障分析中可能会用到的工具&#34;&gt;4、故障分析中可能会用到的工具&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;调用链跟踪工具&lt;/li&gt;&#xA;&lt;li&gt;es日志查询&lt;/li&gt;&#xA;&lt;li&gt;mat jvm分析&lt;/li&gt;&#xA;&lt;li&gt;arthas在线诊断工具&lt;/li&gt;&#xA;&lt;li&gt;Bistoury 在线分析工具&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;版权声明：本文为人工博客的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。&#xA;本文链接：https://www.94rg.com/article/1719&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

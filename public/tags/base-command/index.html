@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>Base Command | 知乎</title>
+    <meta property="og:title" content="Base Command - 知乎">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="工作总结、学习记录、心得体会、超越自我">
+    <meta name="description" content="Base Command">
+        
+    <meta name="author" content="Mars">
+    <meta property="og:url" content="http://localhost:1313/tags/base-command/">
+    <link rel="shortcut icon" href='/favicon.ico' type="image/x-icon">
+    <link rel="icon" href='/favicon.png' type="image/png">
+    <link rel="alternate icon" href='/favicon.png' type="image/svg+xml">
+    
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/base-command/index.xml" title="知乎" />
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://localhost:1313/">
+                        知乎
+                    </a>
+                
+                <p class="description">主人翁何在？你的选择是什么？此时此刻就是最好的时间！</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://localhost:1313/">Home</a>
+                    
+                    <a  href="http://localhost:1313/tools/" title="工具">工具</a>
+                    
+                    <a  href="http://localhost:1313/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://localhost:1313/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <h3 class="archive-title">
+        包含标签
+        <span class="keyword">base command</span>
+        articles
+    </h3>
+    
+
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/linux-base-command.html" target="_blank">linux常用知识</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-20T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-20
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/linux' target="_blank">linux</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h2 id="1网络抓包">1、网络抓包</h2>
+<pre tabindex="0"><code>fconfig查看网卡 ip host 
+tcpdump -i eth1  host hostname and port 80  -w /tmp/data.pcap
+开源软件RawCap也可以抓到(下载地址:http://www.netresec.com/?page=RawCap).将抓到的包保存为pcap后缀,用wireshark打开,就可以继续分析了.
+win7以管理员身份运行，ctrl+c停止后pcap文件才有内容。今天刚好用，开始不会ctrl+c也是这种情况
+</code></pre><h2 id="2压缩解压">2、压缩解压</h2>
+<h3 id="1压缩命令">1.压缩命令：</h3>
+<ul>
+<li>命令格式：tar  -zcvf   压缩文件名.tar.gz   被压缩文件名</li>
+<li>可先切换到当前目录下。压缩文件名和被压缩文件名都可加入路径。</li>
+</ul>
+<h3 id="2解压缩命令">2.解压缩命令：</h3>
+<ul>
+<li>命令格式：tar  -zxvf   压缩文件名.tar.gz</li>
+<li>解压缩后的文件只能放在当前的目录。</li>
+</ul>
+<h2 id="3解压war包">3、解压war包</h2>
+<pre tabindex="0"><code>jar -xvf project.war
+需要说明的是可以指定解压到指定的目录，但是需要全路径，常用做法是把war包拷贝到当前目录后然后执行解压
+</code></pre>……
+            <p class="readmore"><a href="http://localhost:1313/linux-base-command.html" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/The-solution-to-kill-the-process-under-Linux.html" target="_blank">Linux下kill杀不掉进程的解决方案</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/linux' target="_blank">linux</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <p>今天打开Linux虚拟机，然后使用jps命令查看，莫名奇妙多了一个1889进程</p>
+<p>
+        <img class="mx-auto" alt="img" src="https://fastly.jsdelivr.net/gh/chen-xing/figure_bed/images/20201218094240.png" />   
+    </p>
+<p>然后使用kill杀掉后，再运行jps还是存在此进程。于是乎开始大量百度，最终找到了<a href="https://blog.csdn.net/lemontree1945/article/details/79169178">解决方案</a>。</p>
+<p>说的很清楚了，杀不掉的原因有两种：</p>
+<ul>
+<li>1.这个进程是僵尸进程</li>
+<li>2.此进程是&quot;核心态&quot;进程。</li>
+</ul>
+<hr>
+<ul>
+<li>First： 按照方案，我<strong>首先重启</strong>了下看看行不行，结果重启后使用jps命令还是能看到此进程。</li>
+<li>Second：尝试第二种解决方案，<strong>进入到 /proc/1889 目录下</strong>，<strong>执行cat status</strong>，可以看到引用它的<strong>父进程PPID是1584</strong>，于是执行命令<strong>kill -9 1584</strong>就把父进程删除了。最后执行<strong>kill 1889</strong>，然后执行jps就能看到此进程已经彻底Game Over。</li>
+</ul>
+<p>
+        <img class="mx-auto" alt="img" src="https://fastly.jsdelivr.net/gh/chen-xing/figure_bed/images/20201218094246.png" />   
+    </p>……
+            <p class="readmore"><a href="http://localhost:1313/The-solution-to-kill-the-process-under-Linux.html" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/Find-the-installation-directory-of-python-under-linux.html" target="_blank">linux下查找python的安装目录</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/linux' target="_blank">linux</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h2 id="1查找docker">1、查找docker</h2>
+<pre tabindex="0"><code>docker ps
+</code></pre><p>
+        <img class="mx-auto" alt="查找docker容器Id" src="https://static.gzcx.net/figure_bed/20220223114227.png-94rg002" />   
+    </p>
+<h2 id="2进入docker容器">2、进入docker容器</h2>
+<pre tabindex="0"><code>docker exec -it e23686eaed46 /bin/sh 
+</code></pre><h2 id="3确定python版本">3、确定python版本</h2>
+<pre tabindex="0"><code>python --version
+</code></pre><p>
+        <img class="mx-auto" alt="确定python版本" src="https://static.gzcx.net/figure_bed/20220223114353.png-94rg002" />   
+    </p>
+<h2 id="4确定pyhon安装目录">4、确定pyhon安装目录</h2>
+<p>首选输入python命令进入python的编码环境。</p>
+<p>然后输入下面的打印命令</p>
+<pre tabindex="0"><code>import sys
+print (sys.path) 
+</code></pre><p>
+        <img class="mx-auto" alt="查找python安装路径" src="https://static.gzcx.net/figure_bed/20220223114601.png-94rg002" />   
+    
+从截图中看出安装路径是 <strong>/usr/lib/python3.8</strong></p>……
+            <p class="readmore"><a href="http://localhost:1313/Find-the-installation-directory-of-python-under-linux.html" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/Linux-backup-database-to-Qiniu-cloud.html" target="_blank">linux备份数据库到七牛云</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/linux' target="_blank">linux</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <blockquote>
+<p><strong>郑重声明</strong>: 本文首发于<a href="https://www.94rg.com">人工博客</a></p>
+</blockquote>
+<h3 id="1导读">1、导读</h3>
+<p>现在有些it从业者越来越没底线，经常干一些损人不利己的蠢事。比如扫描端口，获取服务器的操作权限，进行挖矿，对数据的数据进行加密，然后丢个地址，要你去付费解密数据。数据就是一个服务的生命线。一方面我们会吐槽对方没道德，另一方面我们可以加强一下自身。做好服务器的安全措施，重要数据备份工作，这样就算被人攻击了，直接回滚数据就好了，损失可以降到最低。这里我为大家介绍的是基于七牛云的免费oss以及官方的qshell工具对文件夹进行备份。不得不说七牛还是业界比较良心的。</p>……
+            <p class="readmore"><a href="http://localhost:1313/Linux-backup-database-to-Qiniu-cloud.html" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="http://localhost:1313/What-should-I-do-if-the-linux-system-disk-is-full.html" target="_blank">linux系统盘满了怎么办，磁盘满了怎么转移到别的磁盘？</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-03-15T13:55:00Z" class="post-meta meta-date dt-published">
+    2022-03-15
+  </time>
+
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/linux' target="_blank">linux</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h2 id="1现象">1、现象</h2>
+<p>使用docker部署了一个蓝眼网盘，正常运行了一段时间，今天突然无法访问了。起初还以为是docker进程因为某种原因down机了，或者因为网络策略无法访问服务端口。</p>
+<h2 id="2排查步骤">2、排查步骤</h2>
+<ul>
+<li>上服务器curl服务主页，同样提示无法访问，可以锁定是服务的问题</li>
+<li>尝试重启docker容器,提示磁盘满了</li>
+</ul>
+<pre tabindex="0"><code>Error response from daemon: Cannot restart container 54e6a5481d99: mkdir /var/lib/docker/overlay2/24ebc597e84c2cc642116e7b6363df5dd1f2fa5c1f13d805efb41a55d5408242/merged: no space left on device
+</code></pre><ul>
+<li>
+<p>查看磁盘占用情况</p>……
+            <p class="readmore"><a href="http://localhost:1313/What-should-I-do-if-the-linux-system-disk-is-full.html" target="_blank">Continue reading</a></p>
+        </div>
+    </article>
+    
+
+    
+
+
+
+
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2025 <a href="http://localhost:1313/">知乎 By Mars</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='http://localhost:1313/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://localhost:1313/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">Latest articles</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://localhost:1313/myDream.html" title="我期望的生活" target="_blank">我期望的生活</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/Fund-industry-F.html" title="基金行业分析" target="_blank">基金行业分析</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/When-did-you-realize-there-was-no-way-out.html" title="什么时候你才意识到上班是没有出路的" target="_blank">什么时候你才意识到上班是没有出路的</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/2023-sailing-for-kids.html" title="2023扬帆起航" target="_blank">2023扬帆起航</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/morningstar-financial-view.html" title="晨星理财观" target="_blank">晨星理财观</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/time-and-money-game.html" title="时间和金钱的游戏" target="_blank">时间和金钱的游戏</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/path-to-maturity.html" title="成长之路" target="_blank">成长之路</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/how-hard-is-it-for-people-a-the-bottom-to-succeed.html" title="底层人想要成功到底有多难" target="_blank">底层人想要成功到底有多难</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/efficient-people-time-management.html" title="高效人士时间管理" target="_blank">高效人士时间管理</a>
+    </li>
+    
+    <li>
+        <a href="http://localhost:1313/idea-realizes-code-hot-deployment.html" title="idea实现代码热部署" target="_blank">idea实现代码热部署</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title" style="color:red">Ads</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a href="https://www.gzcx.net" title="pan gun running" target="_blank" style="color:red">
+                
+                    <img src="https://static.gzcx.net/oneblog/20200516153233593.jpg-94rg002">
+                
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>Categories</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="http://localhost:1313/categories/java/">Java (15)</a></li>
+    
+    <li><a href="http://localhost:1313/categories/Linux/">Linux (6)</a></li>
+    
+    <li><a href="http://localhost:1313/categories/tool/">Tool (15)</a></li>
+    
+    <li><a href="http://localhost:1313/categories/%E4%B9%98%E9%A3%8E%E7%A0%B4%E6%B5%AA/">乘风破浪 (17)</a></li>
+    
+    <li><a href="http://localhost:1313/categories/%E4%BB%96%E5%B1%B1%E4%B9%8B%E7%8E%89/">他山之玉 (3)</a></li>
+    
+    <li><a href="http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>Tags</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://localhost:1313/tags/base/">Base</a>
+    
+    <a href="http://localhost:1313/tags/base-command/">Base Command</a>
+    
+    <a href="http://localhost:1313/tags/experience/">Experience</a>
+    
+    <a href="http://localhost:1313/tags/git/">Git</a>
+    
+    <a href="http://localhost:1313/tags/idea/">Idea</a>
+    
+    <a href="http://localhost:1313/tags/java/">Java</a>
+    
+    <a href="http://localhost:1313/tags/Linux/">Linux</a>
+    
+    <a href="http://localhost:1313/tags/maven/">Maven</a>
+    
+    <a href="http://localhost:1313/tags/reprint/">Reprint</a>
+    
+    <a href="http://localhost:1313/tags/tool/">Tool</a>
+    
+    <a href="http://localhost:1313/tags/work/">Work</a>
+    
+    <a href="http://localhost:1313/tags/%E4%B9%98%E9%A3%8E%E7%A0%B4%E6%B5%AA/">乘风破浪</a>
+    
+    <a href="http://localhost:1313/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">Links</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.gzcx.net/" title="人工博客">人工博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://nav.gzcx.net" title="程序员导航网，便于程序员日常使用的网址集合，你想要的都在这里☺">程序员导航网，便于程序员日常使用的网址集合，你想要的都在这里☺</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">Meta</h3>
+        <ul class="widget-list">
+            <li><a href="http://localhost:1313/index.xml">RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
