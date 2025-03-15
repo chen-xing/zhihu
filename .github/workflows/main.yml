@@ -1,5 +1,10 @@
 name: github pages
 
+permissions:
+  contents: write  # 允许推送代码
+  pull-requests: write  # 允许创建 PR
+
+
 on:
   push:
     branches:
