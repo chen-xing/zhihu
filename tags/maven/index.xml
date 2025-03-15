@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Maven on 知乎</title><link>https://www.zhihu.hk/tags/maven/</link><description>Recent content in Maven on 知乎</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Tue, 15 Mar 2022 21:55:00 +0800</lastBuildDate><atom:link href="https://www.zhihu.hk/tags/maven/index.xml" rel="self" type="application/rss+xml"/><item><title>maven 详解-史上最全的maven教程</title><link>https://www.zhihu.hk/Detailed-maven---the-most-complete-maven-tutorial-in-history.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/Detailed-maven---the-most-complete-maven-tutorial-in-history.html</guid><description>&lt;h3 id="1常用maven仓库">1、常用maven仓库&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://mvnrepository.com/">http://mvnrepository.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://search.maven.org/">http://search.maven.org/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://repository.sonatype.org/">https://repository.sonatype.org/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="2生成项目">2、生成项目&lt;/h3>
+&lt;h4 id="21创建maven的普通java项目">2.1、创建Maven的普通Java项目&lt;/h4>
+&lt;pre tabindex="0">&lt;code>mvn archetype:create
+ -DgroupId=packageName
+ -DartifactId=projectName
+&lt;/code>&lt;/pre>&lt;h4 id="22创建maven的web项目">2.2、创建Maven的Web项目&lt;/h4>
+&lt;pre tabindex="0">&lt;code>mvn archetype:create
+ -DgroupId=packageName
+ -DartifactId=webappName
+ -DarchetypeArtifactId=maven-archetype-webapp
+&lt;/code>&lt;/pre>&lt;h4 id="23反向生成-maven-项目的骨架">2.3、反向生成 maven 项目的骨架&lt;/h4>
+&lt;pre tabindex="0">&lt;code>mvn archetype:generate
+&lt;/code>&lt;/pre>&lt;h3 id="3发布代码到远程仓库">3、发布代码到远程仓库&lt;/h3>
+&lt;pre tabindex="0">&lt;code>mvn install:install-file -DgroupId=com -DartifactId=client -Dversion=0.1.0 -Dpackaging=jar -Dfile=d:\client-0.1.0.jar
+-DdownloadSources=true
+-DdownloadJavadocs=true
+&lt;/code>&lt;/pre>&lt;h3 id="4常用命令">4、常用命令&lt;/h3>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>命令&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>mvn –version&lt;/td>
+ &lt;td>显示版本信息&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn clean&lt;/td>
+ &lt;td>清理项目生产的临时文件,一般是模块下的target目录&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn compile&lt;/td>
+ &lt;td>编译源代码，一般编译模块下的src/main/java目录&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn package&lt;/td>
+ &lt;td>项目打包工具,会在模块下的target目录生成jar或war等文件&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn test&lt;/td>
+ &lt;td>测试命令,或执行src/test/java/下junit的测试用例.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn install&lt;/td>
+ &lt;td>将打包的jar/war文件复制到你的本地仓库中,供其他模块使用&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn deploy&lt;/td>
+ &lt;td>将打包的文件发布到远程参考,提供其他人员进行下载依赖&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn site&lt;/td>
+ &lt;td>生成项目相关信息的网站&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn eclipse:eclipse&lt;/td>
+ &lt;td>将项目转化为Eclipse项目&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn dependency:tree&lt;/td>
+ &lt;td>打印出项目的整个依赖树&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn archetype:generate&lt;/td>
+ &lt;td>创建Maven的普通java项目&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn tomcat:run&lt;/td>
+ &lt;td>在tomcat容器中运行web应用&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>mvn jetty:run&lt;/td>
+ &lt;td>调用 Jetty 插件的 Run 目标在 Jetty Servlet 容器中启动 web 应用&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;blockquote>
+&lt;p>注意：运行maven命令的时候，首先需要定位到maven项目的目录，也就是项目的pom.xml文件所在的目录。否则，必以通过参数来指定项目的目录。&lt;/p></description></item></channel></rss>

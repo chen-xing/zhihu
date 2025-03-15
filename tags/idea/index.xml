@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Idea on 知乎</title><link>https://www.zhihu.hk/tags/idea/</link><description>Recent content in Idea on 知乎</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Tue, 17 May 2022 21:55:00 +0800</lastBuildDate><atom:link href="https://www.zhihu.hk/tags/idea/index.xml" rel="self" type="application/rss+xml"/><item><title>idea实现代码热部署</title><link>https://www.zhihu.hk/idea-realizes-code-hot-deployment.html</link><pubDate>Tue, 17 May 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/idea-realizes-code-hot-deployment.html</guid><description>&lt;h2 id="dynamic-code-evolution-for-java">Dynamic Code Evolution for Java&lt;/h2>
+&lt;p>动态代码演进虚拟机 (DCE VM) 是对 Java HotSpot VM 的修改，它允许在运行时无限制地重新定义加载的类。HotSpot™ VM 的当前热交换机制只允许更改方法体。增强的 VM 允许添加和删除字段和方法以及更改类的超类型。&lt;/p>
+&lt;p>1 需要使用 JDK 1.8.0_181 版本，因为 dcevm 需要和 jdk 版本匹配。&lt;/p>
+&lt;p>2 下载插件：https://github.com/dcevm/dcevm/releases&lt;/p></description></item><item><title>idea jvm调优</title><link>https://www.zhihu.hk/idea-jvm-tuning.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/idea-jvm-tuning.html</guid><description>&lt;h2 id="1背景">1、背景&lt;/h2>
+&lt;p>idea作为一个高频使用的java IDE。性能的好坏,影响着开发的心情。工欲善其事必先利其器。&lt;/p>
+&lt;h2 id="2优化后的参数">2、优化后的参数&lt;/h2>
+&lt;p>优化后的感觉是&lt;strong>拙匠常怪工具差&lt;/strong>。明明可以流畅的编码，为啥之前选择的是默默忍受，不去改变。真的是流畅了很多。&lt;/p>
+&lt;p>当前电脑的配置是 windows i5 8核16G&lt;/p>
+&lt;pre tabindex="0">&lt;code># custom IntelliJ IDEA VM options
+
+# 堆大小，按常规操作，设成相同的，避免自动扩容
+-Xms1536m
+-Xmx1536m
+# 年轻代大小，Sun推荐设置为堆大小的3/8
+-Xmn576m
+# 在JVM启动时即预初始化堆中的所有页，能够快速利用
+-XX:+AlwaysPreTouch
+
+# 设置一个较大的元空间初始值，避免频繁GC扩容
+-XX:MetaspaceSize=256m
+# 元空间最大默认不限制，设一个值保护一下
+-XX:MaxMetaspaceSize=768m
+
+# 启用G1 GC
+# -XX:+UseG1GC
+
+# 启用CMS GC
+-XX:+UseConcMarkSweepGC
+# CMS并行标记，降低标记阶段停顿时间
+-XX:+CMSParallelRemarkEnabled
+# 重新标记前先执行一次新生代GC
+-XX:+CMSScavengeBeforeRemark
+# 触发CMS GC的堆内存占用比例，调大点以降低GC频率
+-XX:CMSInitiatingOccupancyFraction=75
+-XX:+UseCMSInitiatingOccupancyOnly
+
+# 对象晋升到老年代的年龄，默认15。根据观察，对IDEA来说设成10就足够了
+-XX:MaxTenuringThreshold=10
+
+# 压缩普通对象指针
+-XX:+UseCompressedOops
+
+# 指定服务器版JIT编译器，其实不用写，默认已经是了
+-server
+# JIT代码缓存的大小，默认是240M
+-XX:ReservedCodeCacheSize=360M
+# 打开JIT分层编译，默认是开启的了
+-XX:+TieredCompilation
+# 每MB堆空间中的软引用能够存活的近似毫秒数
+-XX:SoftRefLRUPolicyMSPerMB=50
+
+# OOM时输出堆dump转储文件
+-XX:+HeapDumpOnOutOfMemoryError
+# 禁止把某些异常的stack trace优化掉，防止信息被吃了找不到问题
+-XX:-OmitStackTraceInFastThrow
+# 禁用字节码验证。IDEA的代码足够可靠，不用验证
+-Xverify:none
+# 启用断言机制（enable assertion）
+-ea
+
+-Dfile.encoding=UTF-8
+-Dsun.io.useCanonCaches=false
+-Djava.net.preferIPv4Stack=true
+-Djdk.http.auth.tunneling.disabledSchemes=&amp;#34;&amp;#34;
+
+-XX:ErrorFile=$USER_HOME/java_error_in_idea_%p.log
+-XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof
+-javaagent:D:\software\JetBrains\IntelliJ IDEA 2019.2\bin\jetbrains-agent.jar
+&lt;/code>&lt;/pre>&lt;h2 id="3cutom-vm-options和ideaexevmoptions的区别">3、cutom vm options和idea.exe.vmoptions的区别&lt;/h2>
+&lt;ul>
+&lt;li>idea.exe.vmoptions是开发工具自带的，不建议修改，因为升级的时候会进行覆盖&lt;/li>
+&lt;li>cutom vm options是用户自定义的，是留给使用者个性化配置的。默认保存在用户目录下的 .IntelliJIdea2019.2/config&lt;/li>
+&lt;li>实际操作是idea.exe.vmoptions是全局的配置，cutom vm options会对定义的配置进行覆盖&lt;/li>
+&lt;/ul>
+&lt;h2 id="4修改配置后无法启动">4、修改配置后无法启动&lt;/h2>
+&lt;p>报错的信息如下：&lt;/p></description></item><item><title>IDEA中全项目文本查找快捷键（ctr+shift+F）无效解决办法</title><link>https://www.zhihu.hk/Invalid-solution-to-the-shortcut-key-(ctr+shift+F)-for-all-project-text-search-in-IDEA.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/Invalid-solution-to-the-shortcut-key-(ctr+shift+F)-for-all-project-text-search-in-IDEA.html</guid><description>&lt;h3 id="1可能的问题">1、可能的问题&lt;/h3>
+&lt;ul>
+&lt;li>IDEA的快捷键被修改了&lt;/li>
+&lt;li>与系统中的其他软件的快捷键冲突了&lt;/li>
+&lt;/ul>
+&lt;h3 id="2解决办法">2、解决办法&lt;/h3>
+&lt;ul>
+&lt;li>搜狗输入法修改简体与繁体的快捷键（90%是这个原因）&lt;/li>
+&lt;li>不行的话，重启下电脑，首先运行IDEA,检查下快捷键是否正常。不正常的话，检查下是否有开机启动的软件，确定下他们是否存在快捷键冲突的可能。&lt;/li>
+&lt;/ul></description></item><item><title>idea代码模板如何设置</title><link>https://www.zhihu.hk/how-to-set-the-idea-codeTemplate.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/how-to-set-the-idea-codeTemplate.html</guid><description>&lt;h2 id="1模板分类">1、模板分类&lt;/h2>
+&lt;ul>
+&lt;li>File and Code template 文件级别的模板&lt;/li>
+&lt;li>Live template 方法或代码块级别的模板&lt;/li>
+&lt;/ul>
+&lt;h2 id="2file-and-code-template">2、File and Code template&lt;/h2>
+&lt;p>
+ &lt;img class="mx-auto" alt="idea代码模板设置" src="https://fastly.jsdelivr.net/gh/chen-xing/figure_bed_02/cdn/20210728194743558.png" /> 
+ &lt;/p>
+&lt;pre tabindex="0">&lt;code>/**
+ * @description TODO
+ * @date ${YEAR}-${MONTH}-${DAY} ${TIME}
+ * @author chen xing
+ */
+&lt;/code>&lt;/pre>&lt;p>其中${DATE}的样式是 2021/07/28,这里使用了${YEAR}-${MONTH}-${DAY}进行了日期的格式化，纯属个人强迫症。&lt;/p>
+&lt;p>按照上面的设置后，当新建.java文件的时候,默认会按照这个模版去生成对应的代码注释&lt;/p></description></item></channel></rss>

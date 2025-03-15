@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Base Command on 知乎</title><link>https://www.zhihu.hk/tags/base-command/</link><description>Recent content in Base Command on 知乎</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sun, 20 Mar 2022 21:55:00 +0800</lastBuildDate><atom:link href="https://www.zhihu.hk/tags/base-command/index.xml" rel="self" type="application/rss+xml"/><item><title>linux常用知识</title><link>https://www.zhihu.hk/linux-base-command.html</link><pubDate>Sun, 20 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/linux-base-command.html</guid><description>&lt;h2 id="1网络抓包">1、网络抓包&lt;/h2>
+&lt;pre tabindex="0">&lt;code>fconfig查看网卡 ip host 
+tcpdump -i eth1 host hostname and port 80 -w /tmp/data.pcap
+开源软件RawCap也可以抓到(下载地址:http://www.netresec.com/?page=RawCap).将抓到的包保存为pcap后缀,用wireshark打开,就可以继续分析了.
+win7以管理员身份运行，ctrl+c停止后pcap文件才有内容。今天刚好用，开始不会ctrl+c也是这种情况
+&lt;/code>&lt;/pre>&lt;h2 id="2压缩解压">2、压缩解压&lt;/h2>
+&lt;h3 id="1压缩命令">1.压缩命令：&lt;/h3>
+&lt;ul>
+&lt;li>命令格式：tar  -zcvf   压缩文件名.tar.gz   被压缩文件名&lt;/li>
+&lt;li>可先切换到当前目录下。压缩文件名和被压缩文件名都可加入路径。&lt;/li>
+&lt;/ul>
+&lt;h3 id="2解压缩命令">2.解压缩命令：&lt;/h3>
+&lt;ul>
+&lt;li>命令格式：tar  -zxvf   压缩文件名.tar.gz&lt;/li>
+&lt;li>解压缩后的文件只能放在当前的目录。&lt;/li>
+&lt;/ul>
+&lt;h2 id="3解压war包">3、解压war包&lt;/h2>
+&lt;pre tabindex="0">&lt;code>jar -xvf project.war
+需要说明的是可以指定解压到指定的目录，但是需要全路径，常用做法是把war包拷贝到当前目录后然后执行解压
+&lt;/code>&lt;/pre></description></item><item><title>Linux下kill杀不掉进程的解决方案</title><link>https://www.zhihu.hk/The-solution-to-kill-the-process-under-Linux.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/The-solution-to-kill-the-process-under-Linux.html</guid><description>&lt;p>今天打开Linux虚拟机，然后使用jps命令查看，莫名奇妙多了一个1889进程&lt;/p>
+&lt;p>
+ &lt;img class="mx-auto" alt="img" src="https://fastly.jsdelivr.net/gh/chen-xing/figure_bed/images/20201218094240.png" /> 
+ &lt;/p>
+&lt;p>然后使用kill杀掉后，再运行jps还是存在此进程。于是乎开始大量百度，最终找到了&lt;a href="https://blog.csdn.net/lemontree1945/article/details/79169178">解决方案&lt;/a>。&lt;/p>
+&lt;p>说的很清楚了，杀不掉的原因有两种：&lt;/p>
+&lt;ul>
+&lt;li>1.这个进程是僵尸进程&lt;/li>
+&lt;li>2.此进程是&amp;quot;核心态&amp;quot;进程。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>First： 按照方案，我&lt;strong>首先重启&lt;/strong>了下看看行不行，结果重启后使用jps命令还是能看到此进程。&lt;/li>
+&lt;li>Second：尝试第二种解决方案，&lt;strong>进入到 /proc/1889 目录下&lt;/strong>，&lt;strong>执行cat status&lt;/strong>，可以看到引用它的&lt;strong>父进程PPID是1584&lt;/strong>，于是执行命令&lt;strong>kill -9 1584&lt;/strong>就把父进程删除了。最后执行&lt;strong>kill 1889&lt;/strong>，然后执行jps就能看到此进程已经彻底Game Over。&lt;/li>
+&lt;/ul>
+&lt;p>
+ &lt;img class="mx-auto" alt="img" src="https://fastly.jsdelivr.net/gh/chen-xing/figure_bed/images/20201218094246.png" /> 
+ &lt;/p></description></item><item><title>linux下查找python的安装目录</title><link>https://www.zhihu.hk/Find-the-installation-directory-of-python-under-linux.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/Find-the-installation-directory-of-python-under-linux.html</guid><description>&lt;h2 id="1查找docker">1、查找docker&lt;/h2>
+&lt;pre tabindex="0">&lt;code>docker ps
+&lt;/code>&lt;/pre>&lt;p>
+ &lt;img class="mx-auto" alt="查找docker容器Id" src="https://static.gzcx.net/figure_bed/20220223114227.png-94rg002" /> 
+ &lt;/p>
+&lt;h2 id="2进入docker容器">2、进入docker容器&lt;/h2>
+&lt;pre tabindex="0">&lt;code>docker exec -it e23686eaed46 /bin/sh 
+&lt;/code>&lt;/pre>&lt;h2 id="3确定python版本">3、确定python版本&lt;/h2>
+&lt;pre tabindex="0">&lt;code>python --version
+&lt;/code>&lt;/pre>&lt;p>
+ &lt;img class="mx-auto" alt="确定python版本" src="https://static.gzcx.net/figure_bed/20220223114353.png-94rg002" /> 
+ &lt;/p>
+&lt;h2 id="4确定pyhon安装目录">4、确定pyhon安装目录&lt;/h2>
+&lt;p>首选输入python命令进入python的编码环境。&lt;/p>
+&lt;p>然后输入下面的打印命令&lt;/p>
+&lt;pre tabindex="0">&lt;code>import sys
+print (sys.path) 
+&lt;/code>&lt;/pre>&lt;p>
+ &lt;img class="mx-auto" alt="查找python安装路径" src="https://static.gzcx.net/figure_bed/20220223114601.png-94rg002" /> 
+ 
+从截图中看出安装路径是 &lt;strong>/usr/lib/python3.8&lt;/strong>&lt;/p></description></item><item><title>linux备份数据库到七牛云</title><link>https://www.zhihu.hk/Linux-backup-database-to-Qiniu-cloud.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/Linux-backup-database-to-Qiniu-cloud.html</guid><description>&lt;blockquote>
+&lt;p>&lt;strong>郑重声明&lt;/strong>: 本文首发于&lt;a href="https://www.94rg.com">人工博客&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;h3 id="1导读">1、导读&lt;/h3>
+&lt;p>现在有些it从业者越来越没底线，经常干一些损人不利己的蠢事。比如扫描端口，获取服务器的操作权限，进行挖矿，对数据的数据进行加密，然后丢个地址，要你去付费解密数据。数据就是一个服务的生命线。一方面我们会吐槽对方没道德，另一方面我们可以加强一下自身。做好服务器的安全措施，重要数据备份工作，这样就算被人攻击了，直接回滚数据就好了，损失可以降到最低。这里我为大家介绍的是基于七牛云的免费oss以及官方的qshell工具对文件夹进行备份。不得不说七牛还是业界比较良心的。&lt;/p></description></item><item><title>linux系统盘满了怎么办，磁盘满了怎么转移到别的磁盘？</title><link>https://www.zhihu.hk/What-should-I-do-if-the-linux-system-disk-is-full.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/What-should-I-do-if-the-linux-system-disk-is-full.html</guid><description>&lt;h2 id="1现象">1、现象&lt;/h2>
+&lt;p>使用docker部署了一个蓝眼网盘，正常运行了一段时间，今天突然无法访问了。起初还以为是docker进程因为某种原因down机了，或者因为网络策略无法访问服务端口。&lt;/p>
+&lt;h2 id="2排查步骤">2、排查步骤&lt;/h2>
+&lt;ul>
+&lt;li>上服务器curl服务主页，同样提示无法访问，可以锁定是服务的问题&lt;/li>
+&lt;li>尝试重启docker容器,提示磁盘满了&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>Error response from daemon: Cannot restart container 54e6a5481d99: mkdir /var/lib/docker/overlay2/24ebc597e84c2cc642116e7b6363df5dd1f2fa5c1f13d805efb41a55d5408242/merged: no space left on device
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>
+&lt;p>查看磁盘占用情况&lt;/p></description></item></channel></rss>
