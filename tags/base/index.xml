@@ -10,84 +10,11 @@
 &lt;h3 id="堆参数">堆参数&lt;/h3>
 &lt;p>
  &lt;img class="mx-auto" alt="img" src="https://ask.qcloudimg.com/http-save/yehe-1130324/975rk4d0wx.jpeg?imageView2/2/w/1620" /> 
- &lt;/p>
-&lt;h3 id="回收器参数">回收器参数&lt;/h3>
-&lt;p>
- &lt;img class="mx-auto" alt="img" src="https://ask.qcloudimg.com/http-save/yehe-1130324/34nzellt71.jpeg?imageView2/2/w/1620" /> 
- &lt;/p>
-&lt;p>如上表所示，目前&lt;strong>主要有串行、并行和并发三种&lt;/strong>，对于大内存的应用而言，串行的性能太低，因此使用到的主要是并行和并发两种。并行和并发 GC 的策略通过 &lt;code>UseParallelGC &lt;/code>和&lt;code> UseConcMarkSweepGC&lt;/code> 来指定，还有一些细节的配置参数用来配置策略的执行方式。例如：&lt;code>XX:ParallelGCThreads&lt;/code>， &lt;code>XX:CMSInitiatingOccupancyFraction&lt;/code> 等。 通常：Young 区对象回收只可选择并行（耗时间），Old 区选择并发（耗 CPU）。&lt;/p></description></item><item><title>java内存优化的常见方法</title><link>https://www.zhihu.hk/java-memory-optimization.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/java-memory-optimization.html</guid><description>&lt;h2 id="1慎用new">1、慎用new&lt;/h2>
+ &lt;/p></description></item><item><title>java内存优化的常见方法</title><link>https://www.zhihu.hk/java-memory-optimization.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/java-memory-optimization.html</guid><description>&lt;h2 id="1慎用new">1、慎用new&lt;/h2>
 &lt;p>
  &lt;img class="mx-auto" alt="优化无极限" src="https://static.gzcx.net/oneblog/20210724220825605.png-94rg002" /> 
  
-new就意味着会分配对应的内存空间。利用jdk本身的变量&lt;/p>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>错误&lt;/th>
- &lt;th>建议&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>new Boolean(true)&lt;/td>
- &lt;td>Boolean.TRUE&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>new Integer()&lt;/td>
- &lt;td>Integer.valueOf(int i)&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="2string操作">2、String操作&lt;/h2>
-&lt;p>用StringBuffer替换+操作&lt;/p>
-&lt;h2 id="3容易忽略的细节">3、容易忽略的细节&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>细节&lt;/th>
- &lt;th>建议&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>HashMap&lt;/td>
- &lt;td>初始化指定大小&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>for循环减少变量的计算&lt;/td>
- &lt;td>for( inti= 0,len= list.size();i&amp;lt;len;i++)&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>对象尽量在确定的范围内创建&lt;/td>
- &lt;td>if(i== 1){A a = newA();}&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>final中及时释放资源&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>try cath&lt;/td>
- &lt;td>不在循环内部使用&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>Map遍历&lt;/td>
- &lt;td>使用Entry操作&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="4其他的有效的建议">4、其他的有效的建议&lt;/h2>
-&lt;ul>
-&lt;li>多使用单例&lt;/li>
-&lt;li>减少static的使用&lt;/li>
-&lt;li>内部多使用基本的数据类型&lt;/li>
-&lt;li>尽量使用位运算。int num = a * 4;可改写 intn um = a &amp;laquo; 2;&lt;/li>
-&lt;li>HashMap、StringBuffer初始化尽量指定大小。避免扩容复制带来的消耗&lt;/li>
-&lt;li>无效的局部变量，尽早显示指定null&lt;/li>
-&lt;li>数组的拷贝尽量使用系统函数 &lt;strong>System.arraycopy ()&lt;/strong>&lt;/li>
-&lt;li>高频使用对用使用缓存&lt;/li>
-&lt;li>慎用异常控制流程。因为stack track消耗不小&lt;/li>
-&lt;li>try catch&lt;/li>
-&lt;/ul></description></item><item><title>juc介绍</title><link>https://www.zhihu.hk/java-juc.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/java-juc.html</guid><description>&lt;h2 id="1日常工作中的并发">1、日常工作中的并发&lt;/h2>
+new就意味着会分配对应的内存空间。利用jdk本身的变量&lt;/p></description></item><item><title>juc介绍</title><link>https://www.zhihu.hk/java-juc.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/java-juc.html</guid><description>&lt;h2 id="1日常工作中的并发">1、日常工作中的并发&lt;/h2>
 &lt;p>今天的日程&lt;/p>
 &lt;ul>
 &lt;li>jira待处理的任务两个&lt;/li>
@@ -95,13 +22,4 @@ new就意味着会分配对应的内存空间。利用jdk本身的变量&lt;/p>
 &lt;li>钉钉联系客户了解问题发生的过程&lt;/li>
 &lt;li>迭代新功能开发&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>实际过程中我们怎么做？&lt;/strong>&lt;/p>
-&lt;ol>
-&lt;li>先在发布平台上把发布的过程触发起来；&lt;/li>
-&lt;li>钉钉给客户发消息询问问题详情；&lt;/li>
-&lt;li>打开jira,开始分析问题&lt;/li>
-&lt;li>过一段时间回头看下发布的过程是否已经完成了，客户是否有回复&lt;/li>
-&lt;/ol>
-&lt;blockquote>
-&lt;p>并发充分利用cpu资源，提高程序的响应速度&lt;/p></description></item><item><title>jvm 知识点汇总</title><link>https://www.zhihu.hk/Summary-of-jvm-knowledge-points.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/Summary-of-jvm-knowledge-points.html</guid><description>&lt;p>无论什么级别的Java从业者，JVM都是进阶时必须迈过的坎。不管是工作还是面试中，JVM都是必考题。如果不懂JVM的话，薪酬会非常吃亏（近70%的面试者挂在JVM上了）。&lt;/p>
-&lt;p>掌握了JVM机制，就等于学会了深层次解决问题的方法。对于Java开发者而言，只有熟悉底层虚拟机的运行机制，才能通过JVM日志深入到字节码的层次去分析排查问题，发现隐性的系统缺陷，进而提升系统性能。&lt;/p></description></item></channel></rss>
+&lt;p>&lt;strong>实际过程中我们怎么做？&lt;/strong>&lt;/p></description></item><item><title>jvm 知识点汇总</title><link>https://www.zhihu.hk/Summary-of-jvm-knowledge-points.html</link><pubDate>Tue, 15 Mar 2022 21:55:00 +0800</pubDate><guid>https://www.zhihu.hk/Summary-of-jvm-knowledge-points.html</guid><description>&lt;p>无论什么级别的Java从业者，JVM都是进阶时必须迈过的坎。不管是工作还是面试中，JVM都是必考题。如果不懂JVM的话，薪酬会非常吃亏（近70%的面试者挂在JVM上了）。&lt;/p></description></item></channel></rss>

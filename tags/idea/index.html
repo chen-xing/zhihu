@@ -5,75 +5,10 @@
 <a href=https://www.zhihu.hk/about/ title=关于>关于</a></nav></div></div></div></header><div id=body><div class=container><div class=col-group><div class=col-8 id=main><div class=res-cons><h3 class=archive-title>包含标签
 <span class=keyword>idea</span>
 articles</h3><article class=post><header><h1 class=post-title><a href=https://www.zhihu.hk/idea-realizes-code-hot-deployment.html target=_blank>idea实现代码热部署</a></h1></header><time datetime=2022-05-17T13:55:00Z class="post-meta meta-date dt-published">2022-05-17</time><div class="post-meta meta-category"><span>&nbsp;|</span>
-<a href=/categories/java target=_blank>java</a></div><div class=post-content><h2 id=dynamic-code-evolution-for-java>Dynamic Code Evolution for Java</h2><p>动态代码演进虚拟机 (DCE VM) 是对 Java HotSpot VM 的修改，它允许在运行时无限制地重新定义加载的类。HotSpot™ VM 的当前热交换机制只允许更改方法体。增强的 VM 允许添加和删除字段和方法以及更改类的超类型。</p><p>1 需要使用 JDK 1.8.0_181 版本，因为 dcevm 需要和 jdk 版本匹配。</p><p>2 下载插件：https://github.com/dcevm/dcevm/releases</p>……<p class=readmore><a href=https://www.zhihu.hk/idea-realizes-code-hot-deployment.html target=_blank>Continue reading</a></p></div></article><article class=post><header><h1 class=post-title><a href=https://www.zhihu.hk/idea-jvm-tuning.html target=_blank>idea jvm调优</a></h1></header><time datetime=2022-03-15T13:55:00Z class="post-meta meta-date dt-published">2022-03-15</time><div class="post-meta meta-category"><span>&nbsp;|</span>
-<a href=/categories/tool target=_blank>tool</a></div><div class=post-content><h2 id=1背景>1、背景</h2><p>idea作为一个高频使用的java IDE。性能的好坏,影响着开发的心情。工欲善其事必先利其器。</p><h2 id=2优化后的参数>2、优化后的参数</h2><p>优化后的感觉是<strong>拙匠常怪工具差</strong>。明明可以流畅的编码，为啥之前选择的是默默忍受，不去改变。真的是流畅了很多。</p><p>当前电脑的配置是 windows i5 8核16G</p><pre tabindex=0><code># custom IntelliJ IDEA VM options
-
-# 堆大小，按常规操作，设成相同的，避免自动扩容
--Xms1536m
--Xmx1536m
-# 年轻代大小，Sun推荐设置为堆大小的3/8
--Xmn576m
-# 在JVM启动时即预初始化堆中的所有页，能够快速利用
--XX:+AlwaysPreTouch
-
-# 设置一个较大的元空间初始值，避免频繁GC扩容
--XX:MetaspaceSize=256m
-# 元空间最大默认不限制，设一个值保护一下
--XX:MaxMetaspaceSize=768m
-
-# 启用G1 GC
-# -XX:+UseG1GC
-
-# 启用CMS GC
--XX:+UseConcMarkSweepGC
-# CMS并行标记，降低标记阶段停顿时间
--XX:+CMSParallelRemarkEnabled
-# 重新标记前先执行一次新生代GC
--XX:+CMSScavengeBeforeRemark
-# 触发CMS GC的堆内存占用比例，调大点以降低GC频率
--XX:CMSInitiatingOccupancyFraction=75
--XX:+UseCMSInitiatingOccupancyOnly
-
-# 对象晋升到老年代的年龄，默认15。根据观察，对IDEA来说设成10就足够了
--XX:MaxTenuringThreshold=10
-
-# 压缩普通对象指针
--XX:+UseCompressedOops
-
-# 指定服务器版JIT编译器，其实不用写，默认已经是了
--server
-# JIT代码缓存的大小，默认是240M
--XX:ReservedCodeCacheSize=360M
-# 打开JIT分层编译，默认是开启的了
--XX:+TieredCompilation
-# 每MB堆空间中的软引用能够存活的近似毫秒数
--XX:SoftRefLRUPolicyMSPerMB=50
-
-# OOM时输出堆dump转储文件
--XX:+HeapDumpOnOutOfMemoryError
-# 禁止把某些异常的stack trace优化掉，防止信息被吃了找不到问题
--XX:-OmitStackTraceInFastThrow
-# 禁用字节码验证。IDEA的代码足够可靠，不用验证
--Xverify:none
-# 启用断言机制（enable assertion）
--ea
-
--Dfile.encoding=UTF-8
--Dsun.io.useCanonCaches=false
--Djava.net.preferIPv4Stack=true
--Djdk.http.auth.tunneling.disabledSchemes=&#34;&#34;
-
--XX:ErrorFile=$USER_HOME/java_error_in_idea_%p.log
--XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof
--javaagent:D:\software\JetBrains\IntelliJ IDEA 2019.2\bin\jetbrains-agent.jar
-</code></pre><h2 id=3cutom-vm-options和ideaexevmoptions的区别>3、cutom vm options和idea.exe.vmoptions的区别</h2><ul><li>idea.exe.vmoptions是开发工具自带的，不建议修改，因为升级的时候会进行覆盖</li><li>cutom vm options是用户自定义的，是留给使用者个性化配置的。默认保存在用户目录下的 .IntelliJIdea2019.2/config</li><li>实际操作是idea.exe.vmoptions是全局的配置，cutom vm options会对定义的配置进行覆盖</li></ul><h2 id=4修改配置后无法启动>4、修改配置后无法启动</h2><p>报错的信息如下：</p>……<p class=readmore><a href=https://www.zhihu.hk/idea-jvm-tuning.html target=_blank>Continue reading</a></p></div></article><article class=post><header><h1 class=post-title><a href=https://www.zhihu.hk/Invalid-solution-to-the-shortcut-key-%28ctr+shift+F%29-for-all-project-text-search-in-IDEA.html target=_blank>IDEA中全项目文本查找快捷键（ctr+shift+F）无效解决办法</a></h1></header><time datetime=2022-03-15T13:55:00Z class="post-meta meta-date dt-published">2022-03-15</time><div class="post-meta meta-category"><span>&nbsp;|</span>
-<a href=/categories/tool target=_blank>tool</a></div><div class=post-content><h3 id=1可能的问题>1、可能的问题</h3><ul><li>IDEA的快捷键被修改了</li><li>与系统中的其他软件的快捷键冲突了</li></ul><h3 id=2解决办法>2、解决办法</h3><ul><li>搜狗输入法修改简体与繁体的快捷键（90%是这个原因）</li><li>不行的话，重启下电脑，首先运行IDEA,检查下快捷键是否正常。不正常的话，检查下是否有开机启动的软件，确定下他们是否存在快捷键冲突的可能。</li></ul>……<p class=readmore><a href=https://www.zhihu.hk/Invalid-solution-to-the-shortcut-key-%28ctr+shift+F%29-for-all-project-text-search-in-IDEA.html target=_blank>Continue reading</a></p></div></article><article class=post><header><h1 class=post-title><a href=https://www.zhihu.hk/how-to-set-the-idea-codeTemplate.html target=_blank>idea代码模板如何设置</a></h1></header><time datetime=2022-03-15T13:55:00Z class="post-meta meta-date dt-published">2022-03-15</time><div class="post-meta meta-category"><span>&nbsp;|</span>
-<a href=/categories/tool target=_blank>tool</a></div><div class=post-content><h2 id=1模板分类>1、模板分类</h2><ul><li>File and Code template 文件级别的模板</li><li>Live template 方法或代码块级别的模板</li></ul><h2 id=2file-and-code-template>2、File and Code template</h2><p><img class=mx-auto alt=idea代码模板设置 src=https://fastly.jsdelivr.net/gh/chen-xing/figure_bed_02/cdn/20210728194743558.png></p><pre tabindex=0><code>/**
- * @description TODO
- * @date ${YEAR}-${MONTH}-${DAY} ${TIME}
- * @author chen xing
- */
-</code></pre><p>其中${DATE}的样式是 2021/07/28,这里使用了${YEAR}-${MONTH}-${DAY}进行了日期的格式化，纯属个人强迫症。</p><p>按照上面的设置后，当新建.java文件的时候,默认会按照这个模版去生成对应的代码注释</p>……<p class=readmore><a href=https://www.zhihu.hk/how-to-set-the-idea-codeTemplate.html target=_blank>Continue reading</a></p></div></article></div><footer id=footer><div>&copy; 2025 <a href=https://www.zhihu.hk/>知乎 By Mars</a></div><br><div><div class=github-badge><a href=https://gohugo.io/ target=_black rel=nofollow><span class=badge-subject>Powered by</span><span class="badge-value bg-blue">Hugo</span></a></div><div class=github-badge><a href=https://www.flysnow.org/ target=_black><span class=badge-subject>Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a></div><div class=github-badge><a href=https://github.com/flysnow-org/maupassant-hugo target=_black><span class=badge-subject>Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a></div></div></footer><a id=rocket href=#top></a><script type=text/javascript src='/js/totop.js?v=0.0.0' async></script><script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async></script><script src=/js/douban.js></script></div><div id=secondary><section class=widget><form id=search action=https://www.zhihu.hk/search method=get accept-charset=utf-8 target=_blank _lpchecked=1><input type=text name=q maxlength=20 placeholder=Search>
+<a href=/categories/java target=_blank>java</a></div><div class=post-content><h2 id=dynamic-code-evolution-for-java>Dynamic Code Evolution for Java</h2><p>动态代码演进虚拟机 (DCE VM) 是对 Java HotSpot VM 的修改，它允许在运行时无限制地重新定义加载的类。HotSpot™ VM 的当前热交换机制只允许更改方法体。增强的 VM 允许添加和删除字段和方法以及更改类的超类型。</p>……<p class=readmore><a href=https://www.zhihu.hk/idea-realizes-code-hot-deployment.html target=_blank>Continue reading</a></p></div></article><article class=post><header><h1 class=post-title><a href=https://www.zhihu.hk/idea-jvm-tuning.html target=_blank>idea jvm调优</a></h1></header><time datetime=2022-03-15T13:55:00Z class="post-meta meta-date dt-published">2022-03-15</time><div class="post-meta meta-category"><span>&nbsp;|</span>
+<a href=/categories/tool target=_blank>tool</a></div><div class=post-content><h2 id=1背景>1、背景</h2><p>idea作为一个高频使用的java IDE。性能的好坏,影响着开发的心情。工欲善其事必先利其器。</p>……<p class=readmore><a href=https://www.zhihu.hk/idea-jvm-tuning.html target=_blank>Continue reading</a></p></div></article><article class=post><header><h1 class=post-title><a href=https://www.zhihu.hk/Invalid-solution-to-the-shortcut-key-%28ctr+shift+F%29-for-all-project-text-search-in-IDEA.html target=_blank>IDEA中全项目文本查找快捷键（ctr+shift+F）无效解决办法</a></h1></header><time datetime=2022-03-15T13:55:00Z class="post-meta meta-date dt-published">2022-03-15</time><div class="post-meta meta-category"><span>&nbsp;|</span>
+<a href=/categories/tool target=_blank>tool</a></div><div class=post-content>IDEA中全项目文本查找快捷键（ctr+shift+F）无效解决办法……<p class=readmore><a href=https://www.zhihu.hk/Invalid-solution-to-the-shortcut-key-%28ctr+shift+F%29-for-all-project-text-search-in-IDEA.html target=_blank>Continue reading</a></p></div></article><article class=post><header><h1 class=post-title><a href=https://www.zhihu.hk/how-to-set-the-idea-codeTemplate.html target=_blank>idea代码模板如何设置</a></h1></header><time datetime=2022-03-15T13:55:00Z class="post-meta meta-date dt-published">2022-03-15</time><div class="post-meta meta-category"><span>&nbsp;|</span>
+<a href=/categories/tool target=_blank>tool</a></div><div class=post-content>idea代码模板如何设置……<p class=readmore><a href=https://www.zhihu.hk/how-to-set-the-idea-codeTemplate.html target=_blank>Continue reading</a></p></div></article></div><footer id=footer><div>&copy; 2025 <a href=https://www.zhihu.hk/>知乎 By Mars</a></div><br><div><div class=github-badge><a href=https://gohugo.io/ target=_black rel=nofollow><span class=badge-subject>Powered by</span><span class="badge-value bg-blue">Hugo</span></a></div><div class=github-badge><a href=https://www.flysnow.org/ target=_black><span class=badge-subject>Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a></div><div class=github-badge><a href=https://github.com/flysnow-org/maupassant-hugo target=_black><span class=badge-subject>Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a></div></div></footer><a id=rocket href=#top></a><script type=text/javascript src='/js/totop.js?v=0.0.0' async></script><script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async></script><script src=/js/douban.js></script></div><div id=secondary><section class=widget><form id=search action=https://www.zhihu.hk/search method=get accept-charset=utf-8 target=_blank _lpchecked=1><input type=text name=q maxlength=20 placeholder=Search>
 <input type=hidden name=sitesearch value=https://www.zhihu.hk/>
 <button type=submit class="submit icon-search"></button></form></section><section class=widget><h3 class=widget-title>Latest articles</h3><ul class=widget-list><li><a href=https://www.zhihu.hk/myDream.html title=我期望的生活 target=_blank>我期望的生活</a></li><li><a href=https://www.zhihu.hk/Fund-industry-F.html title=基金行业分析 target=_blank>基金行业分析</a></li><li><a href=https://www.zhihu.hk/When-did-you-realize-there-was-no-way-out.html title=什么时候你才意识到上班是没有出路的 target=_blank>什么时候你才意识到上班是没有出路的</a></li><li><a href=https://www.zhihu.hk/2023-sailing-for-kids.html title=2023扬帆起航 target=_blank>2023扬帆起航</a></li><li><a href=https://www.zhihu.hk/morningstar-financial-view.html title=晨星理财观 target=_blank>晨星理财观</a></li><li><a href=https://www.zhihu.hk/time-and-money-game.html title=时间和金钱的游戏 target=_blank>时间和金钱的游戏</a></li><li><a href=https://www.zhihu.hk/path-to-maturity.html title=成长之路 target=_blank>成长之路</a></li><li><a href=https://www.zhihu.hk/how-hard-is-it-for-people-a-the-bottom-to-succeed.html title=底层人想要成功到底有多难 target=_blank>底层人想要成功到底有多难</a></li><li><a href=https://www.zhihu.hk/efficient-people-time-management.html title=高效人士时间管理 target=_blank>高效人士时间管理</a></li><li><a href=https://www.zhihu.hk/idea-realizes-code-hot-deployment.html title=idea实现代码热部署 target=_blank>idea实现代码热部署</a></li></ul></section><section class=widget><h3 class=widget-title style=color:red>Ads</h3><ul class=widget-list><li><a href=https://www.gzcx.net title="pan gun running" target=_blank style=color:red><img src=https://static.gzcx.net/oneblog/20200516153233593.jpg-94rg002></a></li></ul></section><section class=widget><h3 class=widget-title><a href=/categories/>Categories</a></h3><ul class=widget-list><li><a href=https://www.zhihu.hk/categories/java/>Java (15)</a></li><li><a href=https://www.zhihu.hk/categories/Linux/>Linux (6)</a></li><li><a href=https://www.zhihu.hk/categories/tool/>Tool (15)</a></li><li><a href=https://www.zhihu.hk/categories/%E4%B9%98%E9%A3%8E%E7%A0%B4%E6%B5%AA/>乘风破浪 (17)</a></li><li><a href=https://www.zhihu.hk/categories/%E4%BB%96%E5%B1%B1%E4%B9%8B%E7%8E%89/>他山之玉 (3)</a></li><li><a href=https://www.zhihu.hk/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/>读书笔记 (1)</a></li></ul></section><section class=widget><h3 class=widget-title><a href=/tags/>Tags</a></h3><div class=tagcloud><a href=https://www.zhihu.hk/tags/base/>Base</a>
 <a href=https://www.zhihu.hk/tags/base-command/>Base Command</a>
