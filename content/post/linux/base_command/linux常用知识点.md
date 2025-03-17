@@ -5,6 +5,7 @@ tags=["base command"]
 categories=["linux"]
 date="2022-03-20T21:55:00+08:00" 
 url="linux-base-command.html"
+summary="阿里云日志平台使用"
 toc=true
 +++
 

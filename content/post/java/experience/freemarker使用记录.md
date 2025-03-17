@@ -6,6 +6,7 @@ categories=["java"]
 date="2022-03-15T21:55:00+08:00" 
 url="how-to-use-freemarker.html"
 toc=true
+summary="freemarker 使用记录"
 +++
 ## 1、Long类型显示带逗号
 

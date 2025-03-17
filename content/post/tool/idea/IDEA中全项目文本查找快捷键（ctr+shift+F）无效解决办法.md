@@ -6,6 +6,7 @@ categories=["tool"]
 date="2022-03-15T21:55:00+08:00" 
 url="Invalid-solution-to-the-shortcut-key-(ctr+shift+F)-for-all-project-text-search-in-IDEA.html"
 toc=true
+summary="IDEA中全项目文本查找快捷键（ctr+shift+F）无效解决办法"
 +++
 ### 1、可能的问题
 

@@ -6,6 +6,7 @@ categories=["tool"]
 date="2022-03-15T21:55:00+08:00" 
 url="Detailed-maven---the-most-complete-maven-tutorial-in-history.html"
 toc=true
+summary="maven 详解-史上最全的maven教程"
 +++
 ### 1、常用maven仓库
 

@@ -6,6 +6,7 @@ categories=["java"]
 date="2022-03-15T21:55:00+08:00" 
 url="idea-shortcuts.html"
 toc=true
+summary="idea快捷键"
 +++
 ![image-20220429154243334](https://static.gzcx.net/figure_bed/20220429154243.png-94rg002)
 

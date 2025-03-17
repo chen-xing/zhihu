@@ -152,24 +152,7 @@ win7以管理员身份运行，ctrl+c停止后pcap文件才有内容。今天刚
 
 
         <div class="post-content">
-            <p>今天打开Linux虚拟机，然后使用jps命令查看，莫名奇妙多了一个1889进程</p>
-<p>
-        <img class="mx-auto" alt="img" src="https://fastly.jsdelivr.net/gh/chen-xing/figure_bed/images/20201218094240.png" />   
-    </p>
-<p>然后使用kill杀掉后，再运行jps还是存在此进程。于是乎开始大量百度，最终找到了<a href="https://blog.csdn.net/lemontree1945/article/details/79169178">解决方案</a>。</p>
-<p>说的很清楚了，杀不掉的原因有两种：</p>
-<ul>
-<li>1.这个进程是僵尸进程</li>
-<li>2.此进程是&quot;核心态&quot;进程。</li>
-</ul>
-<hr>
-<ul>
-<li>First： 按照方案，我<strong>首先重启</strong>了下看看行不行，结果重启后使用jps命令还是能看到此进程。</li>
-<li>Second：尝试第二种解决方案，<strong>进入到 /proc/1889 目录下</strong>，<strong>执行cat status</strong>，可以看到引用它的<strong>父进程PPID是1584</strong>，于是执行命令<strong>kill -9 1584</strong>就把父进程删除了。最后执行<strong>kill 1889</strong>，然后执行jps就能看到此进程已经彻底Game Over。</li>
-</ul>
-<p>
-        <img class="mx-auto" alt="img" src="https://fastly.jsdelivr.net/gh/chen-xing/figure_bed/images/20201218094246.png" />   
-    </p>……
+            <p>今天打开Linux虚拟机，然后使用jps命令查看，莫名奇妙多了一个1889进程</p>……
             <p class="readmore"><a href="http://localhost:1313/The-solution-to-kill-the-process-under-Linux.html" target="_blank">Continue reading</a></p>
         </div>
     </article>
@@ -208,14 +191,7 @@ win7以管理员身份运行，ctrl+c停止后pcap文件才有内容。今天刚
         <img class="mx-auto" alt="确定python版本" src="https://static.gzcx.net/figure_bed/20220223114353.png-94rg002" />   
     </p>
 <h2 id="4确定pyhon安装目录">4、确定pyhon安装目录</h2>
-<p>首选输入python命令进入python的编码环境。</p>
-<p>然后输入下面的打印命令</p>
-<pre tabindex="0"><code>import sys
-print (sys.path) 
-</code></pre><p>
-        <img class="mx-auto" alt="查找python安装路径" src="https://static.gzcx.net/figure_bed/20220223114601.png-94rg002" />   
-    
-从截图中看出安装路径是 <strong>/usr/lib/python3.8</strong></p>……
+<p>首选输入python命令进入python的编码环境。</p>……
             <p class="readmore"><a href="http://localhost:1313/Find-the-installation-directory-of-python-under-linux.html" target="_blank">Continue reading</a></p>
         </div>
     </article>
@@ -272,16 +248,7 @@ print (sys.path)
 
         <div class="post-content">
             <h2 id="1现象">1、现象</h2>
-<p>使用docker部署了一个蓝眼网盘，正常运行了一段时间，今天突然无法访问了。起初还以为是docker进程因为某种原因down机了，或者因为网络策略无法访问服务端口。</p>
-<h2 id="2排查步骤">2、排查步骤</h2>
-<ul>
-<li>上服务器curl服务主页，同样提示无法访问，可以锁定是服务的问题</li>
-<li>尝试重启docker容器,提示磁盘满了</li>
-</ul>
-<pre tabindex="0"><code>Error response from daemon: Cannot restart container 54e6a5481d99: mkdir /var/lib/docker/overlay2/24ebc597e84c2cc642116e7b6363df5dd1f2fa5c1f13d805efb41a55d5408242/merged: no space left on device
-</code></pre><ul>
-<li>
-<p>查看磁盘占用情况</p>……
+<p>使用docker部署了一个蓝眼网盘，正常运行了一段时间，今天突然无法访问了。起初还以为是docker进程因为某种原因down机了，或者因为网络策略无法访问服务端口。</p>……
             <p class="readmore"><a href="http://localhost:1313/What-should-I-do-if-the-linux-system-disk-is-full.html" target="_blank">Continue reading</a></p>
         </div>
     </article>

@@ -358,78 +358,7 @@
 
         <div class="post-content">
             <h2 id="1背景">1、背景</h2>
-<p>idea作为一个高频使用的java IDE。性能的好坏,影响着开发的心情。工欲善其事必先利其器。</p>
-<h2 id="2优化后的参数">2、优化后的参数</h2>
-<p>优化后的感觉是<strong>拙匠常怪工具差</strong>。明明可以流畅的编码，为啥之前选择的是默默忍受，不去改变。真的是流畅了很多。</p>
-<p>当前电脑的配置是 windows i5 8核16G</p>
-<pre tabindex="0"><code># custom IntelliJ IDEA VM options
-
-# 堆大小，按常规操作，设成相同的，避免自动扩容
--Xms1536m
--Xmx1536m
-# 年轻代大小，Sun推荐设置为堆大小的3/8
--Xmn576m
-# 在JVM启动时即预初始化堆中的所有页，能够快速利用
--XX:+AlwaysPreTouch
-
-# 设置一个较大的元空间初始值，避免频繁GC扩容
--XX:MetaspaceSize=256m
-# 元空间最大默认不限制，设一个值保护一下
--XX:MaxMetaspaceSize=768m
-
-# 启用G1 GC
-# -XX:+UseG1GC
-
-# 启用CMS GC
--XX:+UseConcMarkSweepGC
-# CMS并行标记，降低标记阶段停顿时间
--XX:+CMSParallelRemarkEnabled
-# 重新标记前先执行一次新生代GC
--XX:+CMSScavengeBeforeRemark
-# 触发CMS GC的堆内存占用比例，调大点以降低GC频率
--XX:CMSInitiatingOccupancyFraction=75
--XX:+UseCMSInitiatingOccupancyOnly
-
-# 对象晋升到老年代的年龄，默认15。根据观察，对IDEA来说设成10就足够了
--XX:MaxTenuringThreshold=10
-
-# 压缩普通对象指针
--XX:+UseCompressedOops
-
-# 指定服务器版JIT编译器，其实不用写，默认已经是了
--server
-# JIT代码缓存的大小，默认是240M
--XX:ReservedCodeCacheSize=360M
-# 打开JIT分层编译，默认是开启的了
--XX:+TieredCompilation
-# 每MB堆空间中的软引用能够存活的近似毫秒数
--XX:SoftRefLRUPolicyMSPerMB=50
-
-# OOM时输出堆dump转储文件
--XX:+HeapDumpOnOutOfMemoryError
-# 禁止把某些异常的stack trace优化掉，防止信息被吃了找不到问题
--XX:-OmitStackTraceInFastThrow
-# 禁用字节码验证。IDEA的代码足够可靠，不用验证
--Xverify:none
-# 启用断言机制（enable assertion）
--ea
-
--Dfile.encoding=UTF-8
--Dsun.io.useCanonCaches=false
--Djava.net.preferIPv4Stack=true
--Djdk.http.auth.tunneling.disabledSchemes=&#34;&#34;
-
--XX:ErrorFile=$USER_HOME/java_error_in_idea_%p.log
--XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof
--javaagent:D:\software\JetBrains\IntelliJ IDEA 2019.2\bin\jetbrains-agent.jar
-</code></pre><h2 id="3cutom-vm-options和ideaexevmoptions的区别">3、cutom vm options和idea.exe.vmoptions的区别</h2>
-<ul>
-<li>idea.exe.vmoptions是开发工具自带的，不建议修改，因为升级的时候会进行覆盖</li>
-<li>cutom vm options是用户自定义的，是留给使用者个性化配置的。默认保存在用户目录下的 .IntelliJIdea2019.2/config</li>
-<li>实际操作是idea.exe.vmoptions是全局的配置，cutom vm options会对定义的配置进行覆盖</li>
-</ul>
-<h2 id="4修改配置后无法启动">4、修改配置后无法启动</h2>
-<p>报错的信息如下：</p>……
+<p>idea作为一个高频使用的java IDE。性能的好坏,影响着开发的心情。工欲善其事必先利其器。</p>……
             <p class="readmore"><a href="http://localhost:1313/idea-jvm-tuning.html" target="_blank">Continue reading</a></p>
         </div>
     </article>
@@ -498,14 +427,7 @@
 <h2 id="2file-and-code-template">2、File and Code template</h2>
 <p>
         <img class="mx-auto" alt="idea代码模板设置" src="https://fastly.jsdelivr.net/gh/chen-xing/figure_bed_02/cdn/20210728194743558.png" />   
-    </p>
-<pre tabindex="0"><code>/**
- * @description TODO
- * @date ${YEAR}-${MONTH}-${DAY} ${TIME}
- * @author chen xing
- */
-</code></pre><p>其中${DATE}的样式是 2021/07/28,这里使用了${YEAR}-${MONTH}-${DAY}进行了日期的格式化，纯属个人强迫症。</p>
-<p>按照上面的设置后，当新建.java文件的时候,默认会按照这个模版去生成对应的代码注释</p>……
+    </p>……
             <p class="readmore"><a href="http://localhost:1313/how-to-set-the-idea-codeTemplate.html" target="_blank">Continue reading</a></p>
         </div>
     </article>
@@ -671,37 +593,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="变更日志">变更日志</h2>
-<p><code>-n</code> 同上,不加则显示全部</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log --stat -n
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="查看提交修改">查看提交修改</h2>
-<p>查看某次commit做了哪些修改</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git show &lt;commit-hash-id&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="退出log状态">退出log状态</h2>
-<p>有时候日志过长，可以按下英文q退出状态</p>
-<h2 id="查看提交历史和说明">查看提交历史和说明</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git reflog
-</span></span></code></pre></td></tr></table>
-</div>
-</div>……
+<p><code>-n</code> 同上,不加则显示全部</p>……
             <p class="readmore"><a href="http://localhost:1313/log-about-git.html" target="_blank">Continue reading</a></p>
         </div>
     </article>
@@ -728,83 +620,7 @@
 
         <div class="post-content">
             <h2 id="标签">标签</h2>
-<p>tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。</p>
-<h2 id="新建一个标签">新建一个标签</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git tag &lt;tagname&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>命令<code>git tag &lt;tagname&gt;</code>用于新建一个标签，默认为HEAD，也可以指定一个commit id。</p>
-<h2 id="指定标签信息">指定标签信息</h2>
-<p>you can use like this: <code>git tag -a &lt;tagname&gt; -m &quot;say something...&quot;</code></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git tag -a &lt;tagname&gt; -m &lt;description&gt; &lt;branchname&gt; or commit_id
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="pgp签名标签">PGP签名标签</h2>
-<p>you can use like this: <code>git tag -s &lt;tagname&gt; -m &quot;say something...&quot;</code></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git tag -s &lt;tagname&gt; -m &lt;description&gt; &lt;branchname&gt; or commit_id
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="查看所有标签">查看所有标签</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git tag
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="推送一个本地标签">推送一个本地标签</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git push origin &lt;tagname&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="推送全部未推送过的本地标签">推送全部未推送过的本地标签</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git push origin --tags
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="删除一个本地标签">删除一个本地标签</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git tag -d &lt;tagname&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="删除一个远程标签">删除一个远程标签</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git push origin :refs/tags/&lt;tagname&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div>……
+<p>tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。</p>……
             <p class="readmore"><a href="http://localhost:1313/tag-about-git.html" target="_blank">Continue reading</a></p>
         </div>
     </article>
@@ -850,46 +666,7 @@
 </span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#d14">&#34;description&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>git add</code>可以反复多次使用，添加多个文件，<code>git commit</code>可以一次提交很多文件，<code>-m</code>后面输入的是本次提交说明。</p>
-<h2 id="添加全部修改到暂存区">添加全部修改到暂存区</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add -A .
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li><code>git add -A</code>表示添加所有内容</li>
-<li><code>git add .</code> 表示添加新文件和编辑过的文件不包括删除的文件</li>
-<li><code>git add -u</code> 表示添加编辑或者删除的文件，不包括新添加的文件。</li>
-</ul>
-<h2 id="查看工作区状态">查看工作区状态</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git status
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="查看修改内容">查看修改内容</h2>
-<ul>
-<li><code>git diff</code> 查看工作区(work dict)和暂存区(stage)的区别</li>
-<li><code>git diff --cached</code> 查看暂存区(stage)和分支(master)的区别</li>
-<li><code>git diff HEAD -- &lt;file&gt;</code> 查看工作区和版本库里面最新版本的区别</li>
-</ul>
-<h2 id="版本回退">版本回退</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git reset --hard HEAD^
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>以上命令是返回上一个版本，在Git中，用<code>HEAD</code>表示当前版本，上一个版本就是<code>HEAD^</code>，上上一个版本是<code>HEAD^^</code>，往上100个版本写成<code>HEAD~100</code>。</p>……
+</div><p><code>git add</code>可以反复多次使用，添加多个文件，<code>git commit</code>可以一次提交很多文件，<code>-m</code>后面输入的是本次提交说明。</p>……
             <p class="readmore"><a href="http://localhost:1313/version-control-git.html" target="_blank">Continue reading</a></p>
         </div>
     </article>
